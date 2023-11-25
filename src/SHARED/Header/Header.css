@@ -1,0 +1,49 @@
+.anchor-design a {
+    padding: 0 20px;
+    text-decoration: underline;
+}
+
+.mobile-anchor{
+    min-width: 200px;
+}
+
+.mobile-anchor a {
+    display: block !important;
+    font-weight: bold;
+    padding: 4px 37px 4px 25px;
+    text-decoration: underline;
+}
+
+@media(max-width:350px) {
+    .login-btn-res {
+        padding: 0px 5px;
+    }
+}
+
+@media(max-width:325px) {
+    .site-title {
+        padding-left: 2px;
+    }
+
+    .hambarg-btn {
+        margin-right: 5px;
+    }
+
+    .site-title {
+        font-size: medium;
+    }
+}
+
+.tooltip {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+    display: none;
+    z-index: 1;
+}
+
+.w-10:hover .tooltip {
+    display: block;
+}

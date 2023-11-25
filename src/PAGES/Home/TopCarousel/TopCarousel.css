@@ -1,0 +1,45 @@
+@media(max-width: 460px){
+    .custom-w{
+        width: 90% !important;
+        left: 5%;
+    }
+}
+
+@media(max-width: 330px){
+    .custom-w:hover{
+        height: 90% !important;
+        }
+}
+
+@media(min-width: 400px) and (max-width:640px){
+    .custom-w:hover{
+        height: 60% !important;
+    }
+}
+
+@media(min-width: 450px) and (max-width:640px){
+    .set-text{
+        font-size: 1.2rem !important;
+    }
+
+    .custom-w{
+        width: 80% !important;
+        left: 10%;
+    }
+}
+
+@media(min-width: 1500px){
+    .set-text{
+            margin-bottom: 50px !important;
+        }
+}
+
+@media(min-width: 1600px){
+    .set-text{
+            margin-bottom: 100px !important;
+        }
+}
+
+.slick-prev:before, .slick-next:before{
+    color: black;
+}
