@@ -1,0 +1,19 @@
+@media(max-width: 1170px){
+    .custom-d-block{
+        display: block !important;
+    }
+    .set-social-icon{
+        margin-top: 30px;
+    }
+}
+
+@media(max-width: 416px){
+    .set-custom-gap{
+        gap: 10px !important;
+    }
+    .set-custom-padding{
+        padding-left: 5px;
+        padding-right: 0;
+        font-size: 12px;
+    }
+}
