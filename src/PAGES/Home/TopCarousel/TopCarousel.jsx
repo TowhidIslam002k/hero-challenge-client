@@ -10,7 +10,7 @@ import './TopCarousel.css'
 
 const TopCarousel = () => {
     const settings = {
-        dots: true,
+        // dots: true,
         infinite: true,
         speed: 500,
         slidesToShow: 3,
@@ -26,7 +26,7 @@ const TopCarousel = () => {
                     slidesToShow: 2,
                     slidesToScroll: 1,
                     infinite: true,
-                    dots: true
+                    // dots: true
                 }
             },
             {
@@ -37,7 +37,7 @@ const TopCarousel = () => {
                     initialSlide: 2
                 }
             },
-            
+
         ]
     };
 
@@ -51,24 +51,24 @@ const TopCarousel = () => {
     return (
         <div className='mt-24 mb-5'>
             <Slider {...settings}>
-                {allMeals && allMeals.map((meal) => {
+                {allMeals && allMeals.slice(0, 6).map((meal) => {
                     return (
                         <div key={meal?._id} className="p-2 bg-base-200 relative">
                             <Link><img src={meal?.recipeImage} alt="" /></Link>
-                            <div className="custom-w absolute bottom-5 w-10/12 left-10 sm:left-4 sm:w-11/12 p-2 h-1/4 hover:h-3/4 sm:hover:h-4/5 lg:hover:h-4/5 transform transition-all bg-white rounded-md overflow-hidden">
+                            <div className="custom-w p-2 absolute bottom-5 left-10 sm:left-4 w-10/12 sm:w-11/12 h-1/4 hover:h-3/4 sm:hover:h-4/5 lg:hover:h-4/5 transform transition-all bg-white rounded-md overflow-hidden">
                                 <div className="flex items-center justify-start gap-5">
                                     <span className='flex items-center text-xs '><FaClockRotateLeft />{meal?.duration}</span>
                                     <span className='flex items-center text-xs'><FaRegThumbsUp />{meal?.makingType}</span>
                                 </div>
-                                <Link><h1 className='set-text text-1xl sm:text-md md:text-2xl md:my-6 lg:text-2xl my-4'>{meal?.title}</h1></Link>
 
+                                <Link><h1 className='set-text text-1xl sm:text-md md:text-2xl md:my-6 lg:text-2xl my-4'>{meal?.title}</h1></Link>
 
                                 <div className='mt-5'>
                                     <p className=' text-sm'>
                                         {meal?.description.length < 150 ? <>{meal?.description}</> : <>{meal?.description.slice(0, 150)}...<Link>read more</Link></>}
                                     </p>
-                                    <div className="flex mt-4 items-center gap-4 pr-5">
-                                        <img className='w-2/12 rounded-full' src={meal?.authorImage} alt="" />
+                                    <div className="flex items-center gap-4 mt-4 pr-5">
+                                        <Link className='w-2/12'><img className='rounded-full' src={meal?.authorImage} alt="" /></Link>
                                         <div className=" flex-grow">
                                             <p>{meal?.authorName}</p>
                                             <p>{meal?.uploadDate}</p>

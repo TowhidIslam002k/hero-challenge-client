@@ -14,7 +14,7 @@ const IconCarousel = () => {
     },[])
 
     const settings = {
-        dots: true,
+        // dots: true,
         infinite: true,
         speed: 500,
         slidesToShow: 8,
@@ -29,7 +29,7 @@ const IconCarousel = () => {
                     slidesToShow: 6,
                     slidesToScroll: 1,
                     infinite: true,
-                    dots: true
+                    // dots: true
                 }
             },
             {
@@ -38,7 +38,7 @@ const IconCarousel = () => {
                     slidesToShow: 5,
                     slidesToScroll: 1,
                     infinite: true,
-                    dots: true
+                    // dots: true
                 }
             },
             {
@@ -69,7 +69,7 @@ const IconCarousel = () => {
         ]
     }
     return (
-        <div className='my-20'>
+        <div className='my-20 border border-spacing-1 py-3'>
             <Slider {...settings}>
                 {
                     foodIcons && foodIcons.map((fi) => {

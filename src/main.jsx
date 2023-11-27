@@ -20,7 +20,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/post",
-        element: <PostData />
+        element: <PostData />,
       }
     ]
   },

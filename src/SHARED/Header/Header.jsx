@@ -39,7 +39,7 @@ const Header = () => {
                 ${visible ? 'opacity-100' : 'opacity-0 -translate-y-full'} z-50`}
             >
                 <div className="flex-1">
-                    <h1 className="btn btn-ghost normal-case text-xl site-title">Elite Foods</h1>
+                    <h1 className="btn btn-ghost normal-case text-xl site-title">BEST TEST</h1>
                 </div>
                 <div className="mr-10 hidden lg:flex anchor-design">
                     <ActiveLink to="/recipe">Home</ActiveLink>

@@ -1,0 +1,28 @@
+.populer{
+    padding-top: 6px;
+}
+
+@media(min-width: 1024px){
+    .populer{
+        border-bottom: 1px solid gray;
+    }
+}
+
+@media(min-width: 1400px){
+    .populer img{
+        width: 95%;
+    }
+}
+
+.cus-border{
+    width: 100%;
+    height: 7px;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+}
+/* 
+@media(min-width: 1024px){
+    .cookbook-img{
+        width: fit-content;
+    }
+} */
