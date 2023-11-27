@@ -17,9 +17,9 @@ const Populer = () => {
             </div>
             {populer && populer.slice(0, 4).map((meal) => {
                 return (
-                    <>
+                    <div key={meal?._id}>
                         <Link>
-                            <div key={meal?._id} className="populer px-2 sm:grid grid-cols-6 gap-10 md:gap-0 mb-10 sm:mb-0">
+                            <div className="populer px-2 sm:grid grid-cols-6 gap-10 md:gap-0 mb-10 sm:mb-0">
                                 <img className='col-span-2 my-auto' src={meal?.recipeImage} alt="" />
                                 <div className="p-2 col-span-4">
                                     <p className='text-xs'>Daily recipe</p>
@@ -27,7 +27,7 @@ const Populer = () => {
                                 </div>
                             </div>
                         </Link>
-                    </>
+                    </div>
                 )
             })}
         </div>

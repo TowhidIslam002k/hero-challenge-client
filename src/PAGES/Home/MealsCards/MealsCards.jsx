@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import './MealsCards.css'
 import { FaClockRotateLeft, FaRegThumbsUp, FaRegBookmark } from "react-icons/fa6";
 
 const MealsCards = () => {
@@ -30,8 +31,8 @@ const MealsCards = () => {
                                     <div className="flex items-center gap-4 mt-4 pr-5">
                                         <Link className='w-2/12'><img className='rounded-full' src={meal?.authorImage} alt="" /></Link>
                                         <div className=" flex-grow">
-                                            <p>{meal?.authorName}</p>
-                                            <p>{meal?.uploadDate}</p>
+                                            <p className='authorInfo-respo'>{meal?.authorName}</p>
+                                            <p className='authorInfo-respo'>{meal?.uploadDate}</p>
                                         </div>
                                         <button className='text-2xl'><FaRegBookmark /></button>
                                     </div>

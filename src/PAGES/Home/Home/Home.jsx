@@ -7,8 +7,11 @@ import Populer from '../MealsShowcase/Populer/Populer';
 import Partnership from '../Partnership/Partnership';
 import TopCarousel from '../TopCarousel/TopCarousel';
 import { FaCircleArrowUp } from "react-icons/fa6";
+import useSetTitle from '../../../CustomHooks/useSetTitle';
+import FooterCar from '../FooterCarousel/FooterCar';
 
 const Home = () => {
+    useSetTitle('Home')
     const goToTop = () => {
         window.scroll({ top: 0, behavior: 'smooth' });
     }
@@ -24,6 +27,7 @@ const Home = () => {
             </div>
             <InstaForum />
             <MealsCards />
+            <FooterCar />
             <Partnership />
 
             <div className="fixed bottom-6 right-6">

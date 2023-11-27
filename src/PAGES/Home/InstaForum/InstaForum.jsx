@@ -3,7 +3,7 @@ import './InstaForum.css'
 
 const InstaForum = () => {
     return (
-        <div className='my-16'>
+        <div className='mt-24 mb-20'>
             <div className="flex w-full items-center gap-5 mb-10">
                 <h1 className='text-xl font-bold'>@best_meals_on_Instagram</h1>
                 <div className="cus-border mt-2"></div>
