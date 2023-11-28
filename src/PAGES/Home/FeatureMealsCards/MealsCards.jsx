@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import './MealsCards.css'
 import { FaClockRotateLeft, FaRegThumbsUp, FaRegBookmark, FaRegCreditCard } from "react-icons/fa6";
 
-const Feature = () => {
-
+const MealsCards = () => {
     const [feature, setFeature] = useState([]);
     useEffect(() => {
         fetch('http://localhost:5000/feature')
@@ -29,12 +29,8 @@ const Feature = () => {
         }
     };
     return (
-        <div>
-            <div className="flex w-full items-center gap-5 mb-10">
-                <h1 className='text-xl font-bold'>Feature</h1>
-                <div className="cus-border mt-2"></div>
-            </div>
-            {feature && feature.slice(0, 1).map((meal) => {
+        <div className='grid sm:grid-cols-2 lg:grid-cols-3 gap-10 my-20'>
+            {feature && feature.slice(1, 7).map((meal) => {
                 return (
                     <div key={meal?._id} className="p-2">
                         <Link to={`/feature/${meal._id}`}><img className='' src={meal?.recipeImage} alt="" /></Link>
@@ -57,14 +53,14 @@ const Feature = () => {
                                         <p className='authorInfo-respo'>{meal?.uploadDate}</p>
                                     </div>
                                     <button className='text-2xl relative'>
-                                        <FaRegCreditCard className='hover:text-red-500' />
+                                        <FaRegCreditCard  className='hover:text-red-500'/>
                                         <span className='absolute -top-2 -left-16 opacity-0 text-sm bg-primary text-primary-content p-1 rounded-md z-10 hover:opacity-100'>Add to Cart</span>
                                     </button>
                                     <button
                                         className='text-2xl'
                                         onClick={() => handleBookmark(meal)}
                                     >
-                                        <FaRegBookmark className='hover:text-blue-700' />
+                                        <FaRegBookmark  className='hover:text-blue-700' />
                                     </button>
                                 </div>
                             </div>
@@ -76,4 +72,4 @@ const Feature = () => {
     );
 };
 
-export default Feature;
+export default MealsCards;

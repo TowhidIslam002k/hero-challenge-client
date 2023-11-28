@@ -1,12 +1,12 @@
 import { useContext, useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-// import { UserContext } from '../../AuthContext/AuthContext';
+import { UserContext } from '../../ContextProviders/AuthProviders';
 import ActiveLink from '../Activelink/ActiveLink';
 import './Header.css';
+import { FaRegBookmark } from "react-icons/fa6";
 
 const Header = () => {
-    // const { user } = useContext(UserContext);
-    const user = null;
+    const { user } = useContext(UserContext);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [prevScrollPos, setPrevScrollPos] = useState(0);
     const [visible, setVisible] = useState(true);
@@ -42,13 +42,18 @@ const Header = () => {
                     <h1 className="btn btn-ghost normal-case text-xl site-title">BEST TEST</h1>
                 </div>
                 <div className="mr-10 hidden lg:flex anchor-design">
-                    <ActiveLink to="/recipe">Home</ActiveLink>
+                    <ActiveLink to="/">Home</ActiveLink>
                     <ActiveLink to="/about">about</ActiveLink>
-                    <ActiveLink to="/contact">contact</ActiveLink>
-                    <ActiveLink to="/blog">blog</ActiveLink>
-                    <ActiveLink to="/register">register</ActiveLink>
+                    <ActiveLink to="/Bookmark">
+                        <span className="flex gap-1 items-center">
+                            <FaRegBookmark />Favorite
+                            </span>
+                    </ActiveLink>
+                    <ActiveLink to="/contact">Cart ($0.00)</ActiveLink>
+                    {!user && <ActiveLink to="/register">register</ActiveLink>}
                 </div>
 
+                {/* when display is large then hide the hamburger menu  */}
                 {!mobileMenuOpen && <div className="lg:hidden">
                     <button className="mobile-menu-button p-2 me-4 hambarg-btn" onClick={toggleMobileMenu}>
                         <svg
@@ -63,6 +68,8 @@ const Header = () => {
                     </button>
                 </div>}
 
+
+                {/* if user exist then show the user image else show login button */}
                 {user ? (
                     <div className="dropdown dropdown-end">
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
@@ -86,14 +93,16 @@ const Header = () => {
                     <Link to="/login"><button className="btn btn-warning login-btn-res">Login</button></Link>
                 )}
 
-                <div className="relative mobile_menu">
+
+                {/* Here Design a navbar for less then lagre devices  */}
+                <div className="relative mobile_menu transform transition-all">
                     {mobileMenuOpen && (
                         <div className="lg:hidden pt-2 mobile-anchor bg-primary text-primary-content absolute top-8 -left-48 min-h-screen ">
-                            <ActiveLink to="/recipe" >Home</ActiveLink>
+                            <ActiveLink to="/" >Home</ActiveLink>
                             <ActiveLink to="/about">about</ActiveLink>
                             <ActiveLink to="/contact">contact</ActiveLink>
-                            <ActiveLink to="/blog">blog</ActiveLink>
-                            <ActiveLink to="/register">register</ActiveLink>
+                            <ActiveLink to="/Bookmark">Book Mark</ActiveLink>
+                            {!user && <ActiveLink to="/register">register</ActiveLink>}
                         </div>
                     )}
                     {mobileMenuOpen && <button

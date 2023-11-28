@@ -18,7 +18,7 @@ const PostData = () => {
         const coffeeData = { title, authorImage, authorName, uploadDate, description, ratings, recipeImage, duration, makingType, serves, populerity};
         console.log(coffeeData)
 
-        fetch('http://localhost:5000/feature', {
+        fetch('http://localhost:5000/meals', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'

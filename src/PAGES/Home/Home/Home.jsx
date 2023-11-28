@@ -1,6 +1,5 @@
 import IconCarousel from '../IconCarousel/IconCarousel';
 import InstaForum from '../InstaForum/InstaForum';
-import MealsCards from '../MealsCards/MealsCards';
 import CookBook from '../MealsShowcase/CookBook/CookBook';
 import Feature from '../MealsShowcase/Feature/Feature';
 import Populer from '../MealsShowcase/Populer/Populer';
@@ -9,6 +8,7 @@ import TopCarousel from '../TopCarousel/TopCarousel';
 import { FaCircleArrowUp } from "react-icons/fa6";
 import useSetTitle from '../../../CustomHooks/useSetTitle';
 import FooterCar from '../FooterCarousel/FooterCar';
+import MealsCards from '../FeatureMealsCards/MealsCards';
 
 const Home = () => {
     useSetTitle('Home')

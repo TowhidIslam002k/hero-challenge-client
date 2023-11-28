@@ -7,12 +7,14 @@ import { Rating } from '@smastrom/react-rating'
 import '@smastrom/react-rating/style.css'
 import YouMayLike from '../YouMayLike/YouMayLike';
 import Reply from '../Reply/Reply';
+import ScrollToTop from '../../../SHARED/ScrollToTop/ScrollToTop';
 
 const CarouselCardDetails = () => {
-    const {carouselData, featureData} = useLoaderData();
+    const { carouselData, featureData } = useLoaderData();
     const { _id, title, authorImage, authorName, description, duration, makingType, populerity, ratings, recipeImage, serves, uploadDate } = carouselData;
     return (
         <div className='md:grid grid-cols-3 gap-10 mt-24'>
+            <ScrollToTop />
             <div className="col-span-2">
                 <h1 className='md:text-5xl sm:text-3xl text-2xl font-bold mb-8'>{title}</h1>
                 <div className="mt-5 flex items-center gap-5 custom-d-block">
@@ -52,15 +54,15 @@ const CarouselCardDetails = () => {
 
                 {/* ratings=============== */}
                 <div className="mt-8 flex gap-5 py-2 px-4 bg-yellow-200 ">
-                <Rating
-                    style={{ maxWidth: 100 }}
-                    value={ratings}
-                    readOnly={true}
-                    isRequired
-                />
-                <div className="">
-                    <p>{ratings} out of 5</p>
-                </div>
+                    <Rating
+                        style={{ maxWidth: 100 }}
+                        value={ratings}
+                        readOnly={true}
+                        isRequired
+                    />
+                    <div className="">
+                        <p>{ratings} out of 5</p>
+                    </div>
                 </div>
 
                 {/* you may like this area...... */}
@@ -69,6 +71,8 @@ const CarouselCardDetails = () => {
                 {/* leave a reply compo */}
                 <Reply />
             </div>
+
+            {/* right navbar on specific data load page */}
             <SideBar data={featureData} />
         </div>
     );
