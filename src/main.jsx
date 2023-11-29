@@ -14,6 +14,8 @@ import "./index.css";
 import Main from './LAYOUT/Main.jsx';
 import Bookmark from './PAGES/BookMarks/BookMark';
 import CarouselCardDetails from './PAGES/CardDetails/CarouselCardDetails/CarouselCardDetails';
+import CartedMeals from './PAGES/CartedMeals/CartedMeals';
+import ErrorPage from './PAGES/ErrorPage/ErrorPage';
 import Home from './PAGES/Home/Home/Home';
 import PostData from './PAGES/PostData/PostData';
 
@@ -90,8 +92,16 @@ const router = createBrowserRouter([
         element: <Bookmark />
       },
       {
+        path: "/cart",
+        element: <CartedMeals />
+      },
+      {
         path: "/logout",
         element: <Logout />
+      },
+      {
+        path: '*',
+        element: <ErrorPage />
       }
     ]
   }

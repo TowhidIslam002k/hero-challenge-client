@@ -6,7 +6,7 @@ import './Header.css';
 import { FaRegBookmark } from "react-icons/fa6";
 
 const Header = () => {
-    const { user } = useContext(UserContext);
+    const { user, loading } = useContext(UserContext);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [prevScrollPos, setPrevScrollPos] = useState(0);
     const [visible, setVisible] = useState(true);
@@ -31,6 +31,24 @@ const Header = () => {
         setMobileMenuOpen(!mobileMenuOpen);
     }
 
+    // get carted item price value from local Storage...
+    const getItems = JSON.parse(localStorage.getItem('cart')) || [];
+    let totalPrice = 0;
+    for (let i = 0; i < getItems.length; i++) {
+        if (!isNaN(parseInt(getItems[i].price))) {
+            totalPrice += parseInt(getItems[i].price);
+        } else {
+            console.log("not a number");
+        }
+    }
+
+    if (loading) {
+        return (
+            <div className=' flex justify-center items-center min-h-screen'>
+                <progress className="progress w-96"></progress>
+            </div>
+        );
+    }
 
     return (
         <>
@@ -47,9 +65,9 @@ const Header = () => {
                     <ActiveLink to="/Bookmark">
                         <span className="flex gap-1 items-center">
                             <FaRegBookmark />Favorite
-                            </span>
+                        </span>
                     </ActiveLink>
-                    <ActiveLink to="/contact">Cart ($0.00)</ActiveLink>
+                    <ActiveLink to="/cart">{`Cart ${totalPrice === 0 ? '($0.00)' : ('$' + totalPrice)}`}</ActiveLink>
                     {!user && <ActiveLink to="/register">register</ActiveLink>}
                 </div>
 
@@ -98,13 +116,18 @@ const Header = () => {
                 <div className="relative mobile_menu transform transition-all">
                     {mobileMenuOpen && (
                         <div className="lg:hidden pt-2 mobile-anchor bg-primary text-primary-content absolute top-8 -left-48 min-h-screen ">
-                            <ActiveLink to="/" >Home</ActiveLink>
+                            <ActiveLink to="/">Home</ActiveLink>
                             <ActiveLink to="/about">about</ActiveLink>
-                            <ActiveLink to="/contact">contact</ActiveLink>
-                            <ActiveLink to="/Bookmark">Book Mark</ActiveLink>
+                            <ActiveLink to="/Bookmark">
+                                <span className="flex gap-1 items-center">
+                                    <FaRegBookmark />Favorite
+                                </span>
+                            </ActiveLink>
+                            <ActiveLink to="/cart">{`Cart ${totalPrice === 0 ? '($0.00)' : ('$' + totalPrice)}`}</ActiveLink>
                             {!user && <ActiveLink to="/register">register</ActiveLink>}
                         </div>
                     )}
+
                     {mobileMenuOpen && <button
                         onClick={() => toggleMobileMenu(false)}
                         className="absolute top-11 -right-2 text-gray-600 hover:text-gray-800 focus:outline-none lg:hidden"

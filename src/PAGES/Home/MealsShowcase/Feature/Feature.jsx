@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaClockRotateLeft, FaRegThumbsUp, FaRegBookmark, FaRegCreditCard } from "react-icons/fa6";
+import { handleBookmark, handleCart } from '../../../BookmarkUtils/BookmarkUtils';
+import { ToastContainer } from 'react-toastify';
 
 const Feature = () => {
 
@@ -11,25 +13,20 @@ const Feature = () => {
             .then(data => setFeature(data))
     }, [])
 
-    // Add book marked item to localStorage
-    const handleBookmark = (meal) => {
-        // Retrieve existing bookmarks from localStorage
-        const existingBookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
-
-        // Check if the meal is already bookmarked
-        const isBookmarked = existingBookmarks.some((bookmark) => bookmark._id === meal._id);
-
-        // If not already bookmarked, add it to bookmarks
-        if (!isBookmarked) {
-            const updatedBookmarks = [...existingBookmarks, meal];
-            localStorage.setItem('bookmarks', JSON.stringify(updatedBookmarks));
-            alert('Meal bookmarked successfully!');
-        } else {
-            alert('Meal is already bookmarked!');
-        }
-    };
     return (
         <div>
+        <ToastContainer
+                position="top-center"
+                autoClose={3000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
             <div className="flex w-full items-center gap-5 mb-10">
                 <h1 className='text-xl font-bold'>Feature</h1>
                 <div className="cus-border mt-2"></div>
@@ -56,12 +53,12 @@ const Feature = () => {
                                         <p className='authorInfo-respo'>{meal?.authorName}</p>
                                         <p className='authorInfo-respo'>{meal?.uploadDate}</p>
                                     </div>
-                                    <button className='text-2xl relative'>
+                                    <button onClick={() => handleCart(meal)} className='text-2xl relative focus:border-none focus:outline-none'>
                                         <FaRegCreditCard className='hover:text-red-500' />
                                         <span className='absolute -top-2 -left-16 opacity-0 text-sm bg-primary text-primary-content p-1 rounded-md z-10 hover:opacity-100'>Add to Cart</span>
                                     </button>
                                     <button
-                                        className='text-2xl'
+                                        className='text-2xl focus:border-none focus:outline-none'
                                         onClick={() => handleBookmark(meal)}
                                     >
                                         <FaRegBookmark className='hover:text-blue-700' />

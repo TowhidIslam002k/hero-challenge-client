@@ -9,14 +9,24 @@ import { FaCircleArrowUp } from "react-icons/fa6";
 import useSetTitle from '../../../CustomHooks/useSetTitle';
 import FooterCar from '../FooterCarousel/FooterCar';
 import MealsCards from '../FeatureMealsCards/MealsCards';
+import ScrollToTop from '../../../SHARED/ScrollToTop/ScrollToTop';
+import { useContext } from 'react';
+import { UserContext } from '../../../ContextProviders/AuthProviders';
 
 const Home = () => {
+    const {loading} = useContext(UserContext)
     useSetTitle('Home')
     const goToTop = () => {
         window.scroll({ top: 0, behavior: 'smooth' });
     }
+    if(loading){
+        <div className=' flex justify-center items-center min-h-screen'>
+                <progress className="progress w-96"></progress>
+           </div>
+    }
     return (
         <div>
+            <ScrollToTop />
             <TopCarousel />
             <IconCarousel />
 
