@@ -15,6 +15,7 @@ import Main from './LAYOUT/Main.jsx';
 import Bookmark from './PAGES/BookMarks/BookMark';
 import CarouselCardDetails from './PAGES/CardDetails/CarouselCardDetails/CarouselCardDetails';
 import CartedMeals from './PAGES/CartedMeals/CartedMeals';
+import CategoryMeals from './PAGES/CategoryMeals/CategoryMeals';
 import ErrorPage from './PAGES/ErrorPage/ErrorPage';
 import Home from './PAGES/Home/Home/Home';
 import PostData from './PAGES/PostData/PostData';
@@ -98,6 +99,11 @@ const router = createBrowserRouter([
       {
         path: "/logout",
         element: <Logout />
+      },
+      {
+        path: "/category_meal/:id",
+        element: <CategoryMeals />,
+        loader: ({params}) => fetch(`http://localhost:5000/categoryMeals/${params.id}`)
       },
       {
         path: '*',

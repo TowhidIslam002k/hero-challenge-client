@@ -36,11 +36,11 @@ const Home = () => {
                     </span>
                 </div>, {
                     position: toast.POSITION.TOP_CENTER,
-                    autoClose: 5000,
+                    autoClose: 6000,
                 })
                 sessionStorage.setItem("hasShownLoginToast", true)
             }
-        }, 5000);
+        }, 10000);
     }, [])
 
     if(loading){

@@ -75,7 +75,7 @@ const IconCarousel = () => {
                     foodIcons && foodIcons.map((fi) => {
                         return(
                             <div key={fi._id}>
-                                <Link><img className='w-3/5 mx-auto' src={fi.img} alt="" /></Link>
+                                <Link to={`/category_meal/${fi.category_id}`}><img className='w-3/5 mx-auto' src={fi.img} alt="" /></Link>
                                 <p className='text-center'>{fi.title}</p>
                             </div>
                         )

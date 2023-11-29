@@ -15,10 +15,11 @@ const PostData = () => {
         const makingType = form.makingType.value;
         const serves = form.serves.value;
         const populerity = form.populerity.value;
-        const coffeeData = { title, authorImage, authorName, uploadDate, description, ratings, recipeImage, duration, makingType, serves, populerity};
+        const category_id = form.categoryId.value;
+        const coffeeData = { title, category_id, authorImage, authorName, uploadDate, description, ratings, recipeImage, duration, makingType, serves, populerity};
         console.log(coffeeData)
 
-        fetch('http://localhost:5000/meals', {
+        fetch('http://localhost:5000/categoryMeals', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -46,6 +47,10 @@ const PostData = () => {
                     <div className="md:col-span-1 col-span-2">
                         <label htmlFor="title" className='block mb-2 text-lg font-medium text-gray-700'>Title:</label>
                         <input className='input input-bordered w-full' type="text" name="title" id="title" placeholder="Enter title..." required />
+                    </div>
+                    <div className="md:col-span-1 col-span-2">
+                        <label htmlFor="categoryId" className='block mb-2 text-lg font-medium text-gray-700'>category_id:</label>
+                        <input className='input input-bordered w-full' type="text" name="categoryId" id="categoryId" placeholder="Enter categoryId..." required />
                     </div>
 
                     <div className="md:col-span-1 col-span-2">

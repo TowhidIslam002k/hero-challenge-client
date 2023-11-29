@@ -1,21 +1,21 @@
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
 export const handleBookmark = (meal) => {
+    // Retrieve existing bookmarks from localStorage
     const existingBookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
+
+    // Check if the meal is already bookmarked
     const isBookmarked = existingBookmarks.some((bookmark) => bookmark._id === meal._id);
 
+    // If not already bookmarked, add it to bookmarks
     if (!isBookmarked) {
         const updatedBookmarks = [...existingBookmarks, meal];
         localStorage.setItem('bookmarks', JSON.stringify(updatedBookmarks));
-        // alert('Meal bookmarked successfully!');
-        toast.success('Meal bookmarked successfully!',);
+        toast.success('Meal bookmarked successfully!');
     } else {
-        // Remove the item from bookmarks
-        const updatedBookmarks = existingBookmarks.filter((bookmark) => bookmark._id !== meal._id);
-        localStorage.setItem('bookmarks', JSON.stringify(updatedBookmarks));
-        // alert('Meal removed from bookmarks!');
-        toast.error('Meal remove from bookmarked!',);
+        toast.error('Meal is already bookmarked!');
     }
 };
 
@@ -29,10 +29,7 @@ export const handleCart = (meal) => {
         // alert('Meal carted successfully!');
         toast.success('Meal add to card successfully!',);
     } else {
-        // Remove the item from carts
-        const updatedcarts = existingcarts.filter((cart) => cart._id !== meal._id);
-        localStorage.setItem('cart', JSON.stringify(updatedcarts));
         // alert('Meal removed from carts!');
-        toast.error('Meal remove from cart!',);
+        toast.error('Meal is already added to cart!',);
     }
 };
