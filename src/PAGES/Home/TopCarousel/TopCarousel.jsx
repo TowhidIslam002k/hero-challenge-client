@@ -74,13 +74,14 @@ const TopCarousel = () => {
                                         <span className='flex items-center text-xs'><FaRegThumbsUp />{meal?.makingType}</span>
                                     </div>
 
-                                    <Link to={`/carousel/${meal._id}`}><h1 className='set-text text-1xl sm:text-md md:text-2xl md:my-6 lg:text-2xl my-4'>{meal?.title}</h1></Link>
+                                    <Link to={`/carousel/${meal._id}`}><h1 className='set-text text-1xl sm:font-bold lg:font-normal sm:text-md md:text-2xl md:my-6 lg:text-2xl my-4'>{meal?.title}</h1></Link>
 
                                     <div className='mt-5'>
-                                        <p className=' text-sm'>
+                                        <p className='custom-hide-description text-sm'>
                                             {meal?.description.length < 150 ? <>{meal?.description}</> : <>{meal?.description.slice(0, 150)}...<Link className='text-blue-600 font-bold underline' to={`/carousel/${meal._id}`}>read more</Link></>}
                                         </p>
-                                        <div className="flex items-center gap-4 mt-4 pr-5">
+                                        <p className=' text-violet-700 font-bold sm:text-sm'>Price: ${meal.price}</p>
+                                        <div className="flex items-center gap-4 mt-4 sm:mt-0 md:mt-3 pr-5">
                                             <Link to={`/carousel/${meal._id}`} className='w-2/12'><img className='rounded-full' src={meal?.authorImage} alt="" /></Link>
                                             <div className=" flex-grow">
                                                 <p>{meal?.authorName}</p>

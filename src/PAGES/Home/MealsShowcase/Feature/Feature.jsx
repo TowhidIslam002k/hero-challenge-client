@@ -47,6 +47,7 @@ const Feature = () => {
                                 <p className=' text-sm'>
                                     {meal?.description.length < 150 ? <>{meal?.description}</> : <>{meal?.description.slice(0, 150)}...<Link className='text-blue-600 font-bold underline' to={`/feature/${meal._id}`}>read more</Link></>}
                                 </p>
+                                <p className=' text-violet-700 font-bold text-lg sm:text-sm'>Price: ${meal.price}</p>
                                 <div className="flex items-center gap-4 mt-4 pr-5">
                                     <Link to={`/feature/${meal._id}`} className='w-2/12'><img className='rounded-full' src={meal?.authorImage} alt="" /></Link>
                                     <div className=" flex-grow">

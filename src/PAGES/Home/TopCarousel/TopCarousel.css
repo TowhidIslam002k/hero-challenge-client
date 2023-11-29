@@ -16,6 +16,23 @@
         height: 60% !important;
     }
 }
+@media(max-width: 370px){
+    .custom-hide-description{
+        display: none;
+    }
+}
+
+@media(min-width: 1024px) and (max-width: 1084px){
+    .custom-hide-description{
+        margin-top: -20px !important;
+    }
+}
+
+@media(min-width: 640px) and (max-width: 680px){
+    .custom-hide-description{
+        margin-top: -20px !important;
+    }
+}
 
 @media(min-width: 450px) and (max-width:640px){
     .set-text{
