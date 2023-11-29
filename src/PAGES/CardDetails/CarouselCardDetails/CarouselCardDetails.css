@@ -17,3 +17,9 @@
         font-size: 12px;
     }
 }
+
+@media(max-width: 400px){
+    .rating-cart-bookmark-div{
+        flex-direction: column;
+    }
+}

@@ -10,15 +10,39 @@ import useSetTitle from '../../../CustomHooks/useSetTitle';
 import FooterCar from '../FooterCarousel/FooterCar';
 import MealsCards from '../FeatureMealsCards/MealsCards';
 import ScrollToTop from '../../../SHARED/ScrollToTop/ScrollToTop';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { UserContext } from '../../../ContextProviders/AuthProviders';
+import { toast, ToastContainer } from 'react-toastify';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
-    const {loading} = useContext(UserContext)
+    const {loading, user} = useContext(UserContext)
     useSetTitle('Home')
     const goToTop = () => {
         window.scroll({ top: 0, behavior: 'smooth' });
     }
+
+    // if user is lot logged in then show the login message 
+    useEffect(() => {
+        setTimeout(() => {
+            const hasShownToast = sessionStorage.getItem('hasShownLoginToast');
+            if (!hasShownToast) {
+                toast.info(<div>
+                    <span>Please login to get more access!</span>
+                    <span className='flex justify-end mt-5'>
+                        <Link to="/login">
+                            <button className='link link-hover text-blue-600 border rounded-md'>Login Now</button>
+                        </Link>
+                    </span>
+                </div>, {
+                    position: toast.POSITION.TOP_CENTER,
+                    autoClose: 5000,
+                })
+                sessionStorage.setItem("hasShownLoginToast", true)
+            }
+        }, 5000);
+    }, [])
+
     if(loading){
         <div className=' flex justify-center items-center min-h-screen'>
                 <progress className="progress w-96"></progress>
@@ -27,6 +51,9 @@ const Home = () => {
     return (
         <div>
             <ScrollToTop />
+            {
+                !user && <ToastContainer />
+            }
             <TopCarousel />
             <IconCarousel />
 
