@@ -44,7 +44,7 @@ const TopCarousel = () => {
 
     const [allMeals, setAllMeals] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/meals')
+        fetch('https://hero-server3.vercel.app/meals')
             .then(res => res.json())
             .then(data => setAllMeals(data))
     }, [])

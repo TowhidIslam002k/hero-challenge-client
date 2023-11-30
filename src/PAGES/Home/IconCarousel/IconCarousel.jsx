@@ -8,7 +8,7 @@ import Slider from 'react-slick';
 const IconCarousel = () => {
     const [foodIcons, setFoodIcons] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/cFoods')
+        fetch('https://hero-server3.vercel.app/cFoods')
             .then(res => res.json())
             .then(data => setFoodIcons(data))
     }, [])

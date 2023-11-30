@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 const MealsCards = () => {
     const [feature, setFeature] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/feature')
+        fetch('https://hero-server3.vercel.app/feature')
             .then(res => res.json())
             .then(data => setFeature(data))
     }, [])

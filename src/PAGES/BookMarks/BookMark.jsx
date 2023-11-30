@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import ScrollToTop from '../../SHARED/ScrollToTop/ScrollToTop';
 import { toast, ToastContainer } from 'react-toastify';
 import BookmarkAndCart from '../BookmarkedCartedChild/BookmarkAndCart';
+import { handleCart } from '../BookmarkUtils/BookmarkUtils';
 
 const Bookmark = () => {
     const [bookmarks, setBookmarks] = useState([]);
@@ -46,7 +47,7 @@ const Bookmark = () => {
                     ) : (
                         bookmarks.map((meal) => (<BookmarkAndCart
                             key={meal?._id} meal={meal} handleRemoveBookmark={handleRemoveBookmark}
-                        >Add To Card</BookmarkAndCart>
+                        ><span onClick={() => handleCart(meal)}>Add To Card</span></BookmarkAndCart>
                         ))
                     )}
                 </div>

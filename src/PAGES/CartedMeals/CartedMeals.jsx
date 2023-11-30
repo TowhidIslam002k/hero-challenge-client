@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import ScrollToTop from '../../SHARED/ScrollToTop/ScrollToTop';
 import { toast, ToastContainer } from 'react-toastify';
 import BookmarkAndCart from '../BookmarkedCartedChild/BookmarkAndCart';
+import { Link } from 'react-router-dom';
 
 const CartedMeals = () => {
     const [cart, setcart] = useState([]);
@@ -46,7 +47,7 @@ const CartedMeals = () => {
                     ) : (
                         cart.map((meal) => (<BookmarkAndCart
                             key={meal?._id} meal={meal} handleRemoveBookmark={handleRemoveCart}
-                        >Buy now</BookmarkAndCart>
+                        ><Link to='/buy'>Buy now</Link></BookmarkAndCart>
                         ))
                     )}
                 </div>

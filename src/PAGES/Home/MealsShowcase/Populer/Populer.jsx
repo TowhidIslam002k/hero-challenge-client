@@ -5,7 +5,7 @@ import './Populer.css'
 const Populer = () => {
     const [populer, setPopuler] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/populer')
+        fetch('https://hero-server3.vercel.app/populer')
             .then(res => res.json())
             .then(data => setPopuler(data))
     }, [])

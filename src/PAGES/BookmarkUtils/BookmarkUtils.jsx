@@ -13,9 +13,9 @@ export const handleBookmark = (meal) => {
     if (!isBookmarked) {
         const updatedBookmarks = [...existingBookmarks, meal];
         localStorage.setItem('bookmarks', JSON.stringify(updatedBookmarks));
-        toast.success('Meal bookmarked successfully!');
+        toast.success('Meal add to favorite successfully!');
     } else {
-        toast.error('Meal is already bookmarked!');
+        toast.error('Meal is already added to favorite!');
     }
 };
 

@@ -4,7 +4,7 @@ import { useState } from 'react';
 const CookBook = () => {
     const [cookbook, setCookbook] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/cookbook')
+        fetch('https://hero-server3.vercel.app/cookbook')
             .then(res => res.json())
             .then(data => setCookbook(data))
     }, [])
