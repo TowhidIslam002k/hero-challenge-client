@@ -36,17 +36,41 @@ const Home = () => {
                     </span>
                 </div>, {
                     position: toast.POSITION.TOP_CENTER,
-                    autoClose: 4000,
+                    autoClose: 3000,
                 })
                 sessionStorage.setItem("hasShownLoginToast", true)
             }
         }, 10000);
     }, [])
 
+
+    // if user is not logged in then show the toast after every 5minutes
+    useEffect(() => {
+        const intervalId = setInterval(() => {
+            toast.info(
+                <div>
+                    <span>Please login to get more access!</span>
+                    <span className='flex justify-end mt-5'>
+                        <Link to="/login">
+                            <button className='link link-hover text-blue-600 border rounded-md'>Login Now</button>
+                        </Link>
+                    </span>
+                </div>, {
+                position: toast.POSITION.TOP_CENTER,
+                autoClose: 4000,
+            }
+            );
+        }, 300000);
+
+        return () => {
+            clearInterval(intervalId);
+        };
+    }, []);
+
     if (loading) {
-        return<div className=' flex justify-center items-center min-h-screen'>
-        <progress className="progress w-96"></progress>
-    </div>
+        return <div className=' flex justify-center items-center min-h-screen'>
+            <progress className="progress w-96"></progress>
+        </div>
     }
     return (
         <div>
