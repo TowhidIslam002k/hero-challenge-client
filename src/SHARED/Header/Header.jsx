@@ -95,7 +95,7 @@ const Header = () => {
                                     <span className="badge">New</span>
                                 </Link>
                             </li>
-                            <li><Link to='/public'>My-Post</Link></li>
+                            <li><Link to='/public'>Publlic-Post</Link></li>
                             <li><Link to='/contact'>Contact</Link></li>
                             <li><a>Settings</a></li>
                             <li><Link to="/logout">Logout</Link></li>
@@ -118,9 +118,11 @@ const Header = () => {
                                 </span>
                             </ActiveLink>
                             <ActiveLink to="/cart">{`Cart ${totalPrice === 0 ? '($0.00)' : ('$' + totalPrice)}`}</ActiveLink>
+                            <ActiveLink to='/public'>Publlic-Post</ActiveLink>
                             <ActiveLink to="/about">About Us</ActiveLink>
                             <ActiveLink to='/contact'>Contact</ActiveLink>
                             {loading ? '' : (!user && <ActiveLink to="/register">register</ActiveLink>)}
+                            <ActiveLink to='/logout'>Logout</ActiveLink>
                         </div>
                     )}
 

@@ -1,10 +1,11 @@
-@media(max-width: 310px){
+@media(max-width: 350px){
     .respo{
         width: 230px !important;
         margin-left: 0px !important;
     }
 }
-@media(max-width: 290px){
+
+@media(max-width: 250px){
     .respo{
         width: 200px !important;
         margin-left: 0px !important;
