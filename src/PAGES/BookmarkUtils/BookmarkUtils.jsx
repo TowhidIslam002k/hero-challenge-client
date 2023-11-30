@@ -7,7 +7,7 @@ export const handleBookmark = (meal) => {
     const existingBookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
 
     // Check if the meal is already bookmarked
-    const isBookmarked = existingBookmarks.some((bookmark) => bookmark._id === meal._id);
+    const isBookmarked = existingBookmarks.some((bookmark) => bookmark._id === meal?._id);
 
     // If not already bookmarked, add it to bookmarks
     if (!isBookmarked) {
@@ -21,7 +21,7 @@ export const handleBookmark = (meal) => {
 
 export const handleCart = (meal) => {
     const existingcarts = JSON.parse(localStorage.getItem('cart')) || [];
-    const iscarted = existingcarts.some((cart) => cart._id === meal._id);
+    const iscarted = existingcarts.some((cart) => cart._id === meal?._id);
 
     if (!iscarted) {
         const updatedcarts = [...existingcarts, meal];

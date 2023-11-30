@@ -16,7 +16,7 @@ const Bookmark = () => {
         const existingBookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
 
         // Remove the item from bookmarks
-        const updatedBookmarks = existingBookmarks.filter((bookmark) => bookmark._id !== meal._id);
+        const updatedBookmarks = existingBookmarks.filter((bookmark) => bookmark._id !== meal?._id);
 
         localStorage.setItem('bookmarks', JSON.stringify(updatedBookmarks));
         setBookmarks(updatedBookmarks);
@@ -45,7 +45,7 @@ const Bookmark = () => {
                         <p>No bookmarked meals yet.</p>
                     ) : (
                         bookmarks.map((meal) => (<BookmarkAndCart
-                            key={meal._id} meal={meal} handleRemoveBookmark={handleRemoveBookmark}
+                            key={meal?._id} meal={meal} handleRemoveBookmark={handleRemoveBookmark}
                         >Add To Card</BookmarkAndCart>
                         ))
                     )}

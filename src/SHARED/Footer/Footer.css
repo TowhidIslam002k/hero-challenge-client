@@ -1,18 +1,19 @@
-@media(max-width:420px){
-    .set-footer-link{
+@media(max-width:420px) {
+    .set-footer-link {
         gap: 10px !important;
         font-size: 15px;
     }
 }
 
-@media(max-width:350px){
-    .set-footer-link{
+@media(max-width:350px) {
+    .set-footer-link {
         gap: 6px !important;
         font-size: 14px;
-        }
+    }
 }
-@media(max-width:300px){
-    .set-footer-link{
+
+@media(max-width:300px) {
+    .set-footer-link {
         display: block;
     }
 }

@@ -1,19 +1,11 @@
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import './MealsCards.css'
-import { FaClockRotateLeft, FaRegThumbsUp, FaRegBookmark, FaRegCreditCard } from "react-icons/fa6";
-import { handleBookmark, handleCart } from '../../BookmarkUtils/BookmarkUtils';
+import React from 'react';
+import { FaClockRotateLeft, FaRegBookmark, FaRegCreditCard, FaRegThumbsUp } from 'react-icons/fa6';
+import { Link, useLoaderData } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { handleBookmark, handleCart } from '../PAGES/BookmarkUtils/BookmarkUtils';
 
-const MealsCards = () => {
-    const [feature, setFeature] = useState([]);
-    useEffect(() => {
-        fetch('http://localhost:5000/feature')
-            .then(res => res.json())
-            .then(data => setFeature(data))
-    }, [])
-
+const PublicPost = () => {
+    const publicData = useLoaderData();
     return (
         <>
             <ToastContainer
@@ -29,7 +21,7 @@ const MealsCards = () => {
                 theme="light"
             />
             <div className='grid sm:grid-cols-2 xl:grid-cols-3 gap-10 my-20'>
-                {feature && feature.slice(1, 7).map((meal) => {
+                {publicData && publicData.map((meal) => {
                     return (
                         <div key={meal?._id} className="p-2">
                             <Link to={`/feature/${meal?._id}`}><img className='' src={meal?.recipeImage} alt="" /></Link>
@@ -73,4 +65,4 @@ const MealsCards = () => {
     );
 };
 
-export default MealsCards;
+export default PublicPost;

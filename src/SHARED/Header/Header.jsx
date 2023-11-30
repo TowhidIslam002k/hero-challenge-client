@@ -61,7 +61,7 @@ const Header = () => {
                 </div>
                 <div className="mr-10 hidden lg:flex anchor-design">
                     <ActiveLink to="/">Home</ActiveLink>
-                    <ActiveLink to="/about">about</ActiveLink>
+                    <ActiveLink to="/Post">Post-Meal</ActiveLink>
                     <ActiveLink to="/Bookmark">
                         <span className="flex gap-1 items-center">
                             <FaRegBookmark />Favorite
@@ -96,13 +96,15 @@ const Header = () => {
                                 <div className="tooltip">{user?.displayName}</div>
                             </div>
                         </label>
-                        <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                        <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52  text-gray-400 font-bold">
                             <li>
-                                <a className="justify-between">
+                                <Link to='/profile' className="justify-between">
                                     Profile
                                     <span className="badge">New</span>
-                                </a>
+                                </Link>
                             </li>
+                            <li><Link to='/public'>My-Post</Link></li>
+                            <li><Link to='/contact'>Contact</Link></li>
                             <li><a>Settings</a></li>
                             <li><Link to="/logout">Logout</Link></li>
                         </ul>
@@ -117,13 +119,15 @@ const Header = () => {
                     {mobileMenuOpen && (
                         <div className="lg:hidden pt-2 mobile-anchor bg-primary text-primary-content absolute top-8 -left-48 min-h-screen ">
                             <ActiveLink to="/">Home</ActiveLink>
-                            <ActiveLink to="/about">about</ActiveLink>
+                            <ActiveLink to="/post">Post-Meal</ActiveLink>
                             <ActiveLink to="/Bookmark">
                                 <span className="flex gap-1 items-center">
                                     <FaRegBookmark />Favorite
                                 </span>
                             </ActiveLink>
                             <ActiveLink to="/cart">{`Cart ${totalPrice === 0 ? '($0.00)' : ('$' + totalPrice)}`}</ActiveLink>
+                            <ActiveLink to="/about">About Us</ActiveLink>
+                            <ActiveLink to='/contact'>Contact</ActiveLink>
                             {!user && <ActiveLink to="/register">register</ActiveLink>}
                         </div>
                     )}

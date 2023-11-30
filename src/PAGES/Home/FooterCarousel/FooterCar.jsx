@@ -9,7 +9,7 @@ import img6 from '../../../assets/footer-carousel/h1-clients-img-6a.png'
 
 const FooterCar = () => {
     const settings = {
-        dots:true,
+        dots: true,
         infinite: true,
         speed: 500,
         slidesToShow: 5,
@@ -51,28 +51,23 @@ const FooterCar = () => {
         <div className='my-32 border border-gray-200 w-10/12 mx-auto footer-car'>
             <Slider {...settings}>
                 <div className='w-2/4 py-10'>
-                <img className='mx-auto' src={img1} alt="" />
+                    <img className='mx-auto' src={img1} alt="" />
                 </div>
                 <div className='w-2/4 py-10'>
-                <img className='mx-auto' src={img2} alt="" />
+                    <img className='mx-auto' src={img2} alt="" />
                 </div>
                 <div className='w-2/4 py-10'>
-                <img className='mx-auto' src={img3} alt="" />
+                    <img className='mx-auto' src={img3} alt="" />
                 </div>
                 <div className='w-2/4 py-10'>
-                <img className='mx-auto' src={img4} alt="" />
+                    <img className='mx-auto' src={img4} alt="" />
                 </div>
                 <div className='w-2/4 py-10'>
-                <img className='mx-auto' src={img5} alt="" />
+                    <img className='mx-auto' src={img5} alt="" />
                 </div>
                 <div className='w-2/4 py-10'>
-                <img className='mx-auto' src={img6} alt="" />
+                    <img className='mx-auto' src={img6} alt="" />
                 </div>
-                {/* <img className='w-2/4 py-10' src={img2} alt="" />
-                <img className='w-2/4 py-10' src={img3} alt="" />
-                <img className='w-2/4 py-10' src={img4} alt="" />
-                <img className='w-2/4 py-10' src={img5} alt="" />
-                <img className='w-2/4 py-10' src={img6} alt="" /> */}
             </Slider>
         </div>
     );

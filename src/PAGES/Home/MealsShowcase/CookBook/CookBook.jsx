@@ -1,13 +1,24 @@
-import cookbook from '../../../../assets/cook-book-3.jpg'
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 const CookBook = () => {
+    const [cookbook, setCookbook] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000/cookbook')
+            .then(res => res.json())
+            .then(data => setCookbook(data))
+    }, [])
     return (
         <div>
-            <div className="flex w-full items-center gap-5 mb-10">
-                <h1 className='text-xl font-bold'>CookBook</h1>
-                <div className="cus-border mt-2"></div>
-            </div>
-            <img className='cookbook-img' src={cookbook} alt="" />
+            {
+                cookbook.map(item => <div key={item._id}>
+                    <div className="flex w-full items-center gap-5 mb-10">
+                        <h1 className='text-xl font-bold'>{item.title}</h1>
+                        <div className="cus-border mt-2"></div>
+                    </div>
+                    <img className='cookbook-img' src={item.recipeImage} alt="" />
+                </div>)
+            }
         </div>
     );
 };

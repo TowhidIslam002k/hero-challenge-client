@@ -16,7 +16,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import { Link } from 'react-router-dom';
 
 const Home = () => {
-    const {loading, user} = useContext(UserContext)
+    const { loading, user } = useContext(UserContext)
     useSetTitle('Home')
     const goToTop = () => {
         window.scroll({ top: 0, behavior: 'smooth' });
@@ -43,10 +43,10 @@ const Home = () => {
         }, 10000);
     }, [])
 
-    if(loading){
+    if (loading) {
         <div className=' flex justify-center items-center min-h-screen'>
-                <progress className="progress w-96"></progress>
-           </div>
+            <progress className="progress w-96"></progress>
+        </div>
     }
     return (
         <div>

@@ -7,11 +7,11 @@ import Slider from 'react-slick';
 
 const IconCarousel = () => {
     const [foodIcons, setFoodIcons] = useState([]);
-    useEffect(()=>{
+    useEffect(() => {
         fetch('http://localhost:5000/cFoods')
-        .then(res => res.json())
-        .then(data => setFoodIcons(data))
-    },[])
+            .then(res => res.json())
+            .then(data => setFoodIcons(data))
+    }, [])
 
     const settings = {
         // dots: true,
@@ -65,7 +65,7 @@ const IconCarousel = () => {
                     initialSlide: 2
                 }
             },
-            
+
         ]
     }
     return (
@@ -73,7 +73,7 @@ const IconCarousel = () => {
             <Slider {...settings}>
                 {
                     foodIcons && foodIcons.map((fi) => {
-                        return(
+                        return (
                             <div key={fi._id}>
                                 <Link to={`/category_meal/${fi.category_id}`}><img className='w-3/5 mx-auto' src={fi.img} alt="" /></Link>
                                 <p className='text-center'>{fi.title}</p>

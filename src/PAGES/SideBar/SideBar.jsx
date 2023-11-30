@@ -3,15 +3,9 @@ import authorImg from '../../assets/sideBar/author-img.png'
 import signeture from '../../assets/sideBar/signeture.png'
 import sidebar1 from '../../assets/sideBar/sidebar-img-1.jpg'
 import sidebar2 from '../../assets/sideBar/sidebar-img-2.jpg'
-import Img1 from '../../assets/sideBar/h3-img-1.jpg'
-import Img2 from '../../assets/sideBar/h3-img-2.jpg'
-import Img3 from '../../assets/sideBar/h3-img-4.jpg'
 import { Link } from 'react-router-dom'
 
-
-
-
-const SideBar = ({data}) => {
+const SideBar = ({ data }) => {
     return (
         <div>
             <div className="">
@@ -44,17 +38,18 @@ const SideBar = ({data}) => {
 
             <div className="py-2 px-4 border border-gray-200">
                 <p className='font-bold text-center text-lg -m-6'>Latest Recipe</p>
-            {
-                    data.slice(4, 7).map(meal => <div key={meal._id} className="">
-                        <Link to={`/feature/${meal._id}`}>
+                {
+                    data && data.slice(4, 7).map(meal => <div key={meal?._id} className="">
+                        <Link to={`/feature/${meal?._id}`}>
                             <div className="lg:flex gap-4 mb-5 mt-10">
-                                <img className='lg:w-2/5' src={meal.recipeImage} alt="" />
-                                <p className="font-semibold mt-5 sm:text-lg">{meal.title}</p>
+                                <img className='lg:w-2/5' src={meal?.recipeImage} alt="" />
+                                <p className="font-semibold mt-5 sm:text-lg">{meal?.title}</p>
                             </div>
                         </Link>
                     </div>)
                 }
             </div>
+
         </div>
     );
 };

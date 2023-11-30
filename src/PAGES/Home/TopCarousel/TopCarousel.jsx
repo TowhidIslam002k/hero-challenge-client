@@ -69,22 +69,22 @@ const TopCarousel = () => {
                     {allMeals && allMeals.slice(0, 6).map((meal) => {
                         return (
                             <div key={meal?._id} className="p-2 bg-base-200 relative">
-                                <Link to={`/carousel/${meal._id}`}><img src={meal?.recipeImage} alt="" /></Link>
+                                <Link to={`/carousel/${meal?._id}`}><img src={meal?.recipeImage} alt="" /></Link>
                                 <div className="custom-w p-2 absolute bottom-5 left-10 sm:left-4 w-10/12 sm:w-11/12 h-1/4 hover:h-3/4 sm:hover:h-4/5 lg:hover:h-4/5 transform transition-all bg-white rounded-md overflow-hidden">
                                     <div className="flex items-center justify-start gap-5">
                                         <span className='flex items-center text-xs '><FaClockRotateLeft />{meal?.duration}</span>
                                         <span className='flex items-center text-xs'><FaRegThumbsUp />{meal?.makingType}</span>
                                     </div>
 
-                                    <Link to={`/carousel/${meal._id}`}><h1 className='set-text text-1xl sm:font-bold lg:font-normal sm:text-md md:text-2xl md:my-6 lg:text-2xl my-4'>{meal?.title}</h1></Link>
+                                    <Link to={`/carousel/${meal?._id}`}><h1 className='set-text text-1xl sm:font-bold lg:font-normal sm:text-md md:text-2xl md:my-6 lg:text-2xl my-4'>{meal?.title}</h1></Link>
 
                                     <div className='mt-5'>
                                         <p className='custom-hide-description text-sm'>
-                                            {meal?.description.length < 150 ? <>{meal?.description}</> : <>{meal?.description.slice(0, 150)}...<Link className='text-blue-600 font-bold underline' to={`/carousel/${meal._id}`}>read more</Link></>}
+                                            {meal?.description.length < 150 ? <>{meal?.description}</> : <>{meal?.description.slice(0, 150)}...<Link className='text-blue-600 font-bold underline' to={`/carousel/${meal?._id}`}>read more</Link></>}
                                         </p>
-                                        <p className=' text-violet-700 font-bold sm:text-sm'>Price: ${meal.price}</p>
+                                        <p className=' text-violet-700 font-bold sm:text-sm'>Price: ${meal?.price}</p>
                                         <div className="flex items-center gap-4 mt-4 sm:mt-0 md:mt-3 pr-5">
-                                            <Link to={`/carousel/${meal._id}`} className='w-2/12'><img className='rounded-full' src={meal?.authorImage} alt="" /></Link>
+                                            <Link to={`/carousel/${meal?._id}`} className='w-2/12'><img className='rounded-full' src={meal?.authorImage} alt="" /></Link>
                                             <div className=" flex-grow">
                                                 <p>{meal?.authorName}</p>
                                                 <p>{meal?.uploadDate}</p>

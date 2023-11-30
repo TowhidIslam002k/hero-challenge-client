@@ -16,7 +16,7 @@ const CartedMeals = () => {
         const existingcart = JSON.parse(localStorage.getItem('cart')) || [];
 
         // Remove the item from cart
-        const updatedcart = existingcart.filter((item) => item._id !== meal._id);
+        const updatedcart = existingcart.filter((item) => item._id !== meal?._id);
 
         localStorage.setItem('cart', JSON.stringify(updatedcart));
         setcart(updatedcart);
@@ -45,7 +45,7 @@ const CartedMeals = () => {
                         <p>Your cart is empty.</p>
                     ) : (
                         cart.map((meal) => (<BookmarkAndCart
-                            key={meal._id} meal={meal} handleRemoveBookmark={handleRemoveCart}
+                            key={meal?._id} meal={meal} handleRemoveBookmark={handleRemoveCart}
                         >Buy now</BookmarkAndCart>
                         ))
                     )}
