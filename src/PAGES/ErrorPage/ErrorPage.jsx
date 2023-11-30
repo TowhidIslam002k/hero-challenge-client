@@ -1,6 +1,8 @@
 import React from 'react';
+import useSetTitle from '../../CustomHooks/useSetTitle';
 
 const ErrorPage = () => {
+  useSetTitle('Error')
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white rounded-lg p-8 shadow-md">

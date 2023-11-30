@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import useSetTitle from '../../CustomHooks/useSetTitle';
 
 const PostData = () => {
+    useSetTitle('Post')
     const navigate = useNavigate()
     const handleAddCoffee = event => {
         event.preventDefault();

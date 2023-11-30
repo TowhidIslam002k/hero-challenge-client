@@ -3,8 +3,10 @@ import ScrollToTop from '../../SHARED/ScrollToTop/ScrollToTop';
 import { toast, ToastContainer } from 'react-toastify';
 import BookmarkAndCart from '../BookmarkedCartedChild/BookmarkAndCart';
 import { handleCart } from '../BookmarkUtils/BookmarkUtils';
+import useSetTitle from '../../CustomHooks/useSetTitle';
 
 const Bookmark = () => {
+    useSetTitle('Favorite')
     const [bookmarks, setBookmarks] = useState([]);
 
     useEffect(() => {

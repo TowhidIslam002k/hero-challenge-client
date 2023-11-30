@@ -1,5 +1,7 @@
+import useSetTitle from "../../CustomHooks/useSetTitle";
 
 const BuyNowPage = () => {
+  useSetTitle('Buy Page')
   return (
     <div className="bg-gray-100 min-h-screen flex items-center justify-center">
       <div className="bg-white p-4 sm:p-8 md:p-12 rounded-md w-full sm:w-96 mt-16">

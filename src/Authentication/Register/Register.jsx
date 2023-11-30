@@ -6,9 +6,11 @@ import { FaEyeSlash, FaEye } from 'react-icons/fa6'
 import google from '../../assets/images/google.png'
 import github from '../../assets/images/github.png'
 import { UserContext } from '../../ContextProviders/AuthProviders';
+import useSetTitle from '../../CustomHooks/useSetTitle';
 
 
 const Register = () => {
+    useSetTitle('Register')
     const { createUser, verifyEmail, updateProfileInfo, loginWithGoogle, loginWithGithub, loading } = useContext(UserContext);
     const navigate = useNavigate();
     const [error, setError] = useState('');

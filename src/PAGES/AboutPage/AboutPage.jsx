@@ -1,6 +1,8 @@
 import React from 'react';
+import useSetTitle from '../../CustomHooks/useSetTitle';
 
 const AboutPage = () => {
+  useSetTitle('About')
   return (
     <div className="bg-gray-100 min-h-screen mt-16">
       <div className="container mx-auto p-8">

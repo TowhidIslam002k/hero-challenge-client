@@ -2,9 +2,11 @@ import React from 'react';
 import { FaClockRotateLeft, FaRegBookmark, FaRegCreditCard, FaRegThumbsUp } from 'react-icons/fa6';
 import { Link, useLoaderData } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import useSetTitle from '../CustomHooks/useSetTitle';
 import { handleBookmark, handleCart } from '../PAGES/BookmarkUtils/BookmarkUtils';
 
 const PublicPost = () => {
+    useSetTitle('Public-Post')
     const publicData = useLoaderData();
     return (
         <>

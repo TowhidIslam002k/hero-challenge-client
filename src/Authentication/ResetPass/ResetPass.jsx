@@ -1,9 +1,11 @@
 import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
 import { useState } from 'react';
+import useSetTitle from '../../CustomHooks/useSetTitle';
 import app from '../firebase/firebase.config';
 import ScrollToTop from '../ScrollToTop/ScrollToTop';
 
 const ResetPass = () => {
+    useSetTitle('Reset Pass')
     const [email, setEmail] = useState('');
     const [error, setError] = useState('');
     const auth = getAuth(app)

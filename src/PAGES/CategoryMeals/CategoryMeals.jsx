@@ -2,10 +2,12 @@ import React from 'react';
 import { FaRegCreditCard, FaClockRotateLeft, FaRegThumbsUp, FaRegBookmark } from 'react-icons/fa6';
 import { Link, useLoaderData } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import useSetTitle from '../../CustomHooks/useSetTitle';
 import ScrollToTop from '../../SHARED/ScrollToTop/ScrollToTop';
 import { handleBookmark, handleCart } from '../BookmarkUtils/BookmarkUtils';
 
 const CategoryMeals = () => {
+    useSetTitle("Category")
     const categoryMeal = useLoaderData()
     // console.log(categoryMeal) 
     return (

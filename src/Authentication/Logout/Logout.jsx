@@ -2,8 +2,10 @@ import { useState } from 'react';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../ContextProviders/AuthProviders';
+import useSetTitle from '../../CustomHooks/useSetTitle';
 
 const Logout = () => {
+    useSetTitle("Logout")
     const [showModal, setShowModal] = useState(false);
     const { logOut, loading } = useContext(UserContext);
     const navigate = useNavigate();

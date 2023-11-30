@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 // this component is used as a child compo in bookmark and cart component..
 const BookmarkAndCart = ({ meal, handleRemoveBookmark, children }) => {
-
     return (
         <div
             key={meal?._id}

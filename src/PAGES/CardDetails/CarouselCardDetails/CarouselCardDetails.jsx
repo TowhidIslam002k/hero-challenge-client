@@ -10,8 +10,10 @@ import Reply from '../Reply/Reply';
 import ScrollToTop from '../../../SHARED/ScrollToTop/ScrollToTop';
 import { handleBookmark, handleCart } from '../../BookmarkUtils/BookmarkUtils';
 import { ToastContainer } from 'react-toastify';
+import useSetTitle from '../../../CustomHooks/useSetTitle';
 
 const CarouselCardDetails = () => {
+    useSetTitle('Meal Details')
     const { carouselData, featureData } = useLoaderData();
     const { title, authorImage, authorName, description, duration, makingType, populerity, ratings, recipeImage, serves, uploadDate } = carouselData;
     return (

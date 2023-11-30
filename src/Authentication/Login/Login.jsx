@@ -7,6 +7,7 @@ import google from '../../assets/images/google.png'
 import github from '../../assets/images/github.png'
 
 const Login = () => {
+    useLocation("Login")
     const [err, setErr] = useState('');
     const navigate = useNavigate();
     const { loginUser, loginWithGoogle, loginWithGithub, loading } = useContext(UserContext);

@@ -3,8 +3,10 @@ import ScrollToTop from '../../SHARED/ScrollToTop/ScrollToTop';
 import { toast, ToastContainer } from 'react-toastify';
 import BookmarkAndCart from '../BookmarkedCartedChild/BookmarkAndCart';
 import { Link } from 'react-router-dom';
+import useSetTitle from '../../CustomHooks/useSetTitle';
 
 const CartedMeals = () => {
+    useSetTitle('Cart')
     const [cart, setcart] = useState([]);
 
     useEffect(() => {

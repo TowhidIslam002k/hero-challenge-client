@@ -1,7 +1,9 @@
 import React, { useContext } from 'react';
 import { UserContext } from '../../ContextProviders/AuthProviders';
+import useSetTitle from '../../CustomHooks/useSetTitle';
 
 const UserProfile = () => {
+    useSetTitle('My-Profile')
     const {user} = useContext(UserContext)
     const { displayName, email, emailVerified, photoURL } = user;
     
