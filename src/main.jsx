@@ -8,6 +8,7 @@ import Login from './Authentication/Login/Login';
 import Logout from './Authentication/Logout/Logout';
 import PrivateRoute from './Authentication/PrivateRoute/PrivateRoute';
 import Register from './Authentication/Register/Register';
+import ResetPass from './Authentication/ResetPass/ResetPass';
 import AuthProviders from './ContextProviders/AuthProviders';
 import "./index.css";
 // import Details from './LAYOUT/Details';
@@ -148,6 +149,10 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register />
+      },
+      {
+        path: "/reset",
+        element: <ResetPass />
       },
       {
         path: "/bookmark",

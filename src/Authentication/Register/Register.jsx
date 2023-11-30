@@ -190,6 +190,9 @@ const Register = () => {
                             <label className="label">
                                 <Link to="/login" className="label-text-alt link link-hover">Already have an account?</Link>
                             </label>
+                            <label className="label">
+                                <Link to="/reset" className="label-text-alt link link-hover">Forgot password?</Link>
+                            </label>
                         </div>
                         <div className="form-control mt-6">
                             <button className="btn btn-primary">Sign up</button>

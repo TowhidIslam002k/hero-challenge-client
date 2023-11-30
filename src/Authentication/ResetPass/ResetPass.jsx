@@ -1,8 +1,7 @@
 import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
 import { useState } from 'react';
 import useSetTitle from '../../CustomHooks/useSetTitle';
-import app from '../firebase/firebase.config';
-import ScrollToTop from '../ScrollToTop/ScrollToTop';
+import app from '../../FirebaseConfig/Firebase.config';
 
 const ResetPass = () => {
     useSetTitle('Reset Pass')
@@ -25,8 +24,7 @@ const ResetPass = () => {
 
     return (
         <>
-        <ScrollToTop />
-        <div className="hero min-h-screen bg-base-200">
+        <div className="hero min-h-screen bg-base-200 mt-16">
             <div className="hero-content flex-col">
                 <div className="text-center">
                     <h1 className="text-5xl font-bold text-primary">Reset Password</h1>

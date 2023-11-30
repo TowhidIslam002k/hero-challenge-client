@@ -116,10 +116,10 @@ const Login = () => {
                                 </i>
                             </div>
                             <label className="label">
-                                <Link to="/reset" className="label-text-alt link link-hover">Forgot password?</Link>
+                                <Link to="/register" className="label-text-alt link link-hover">Don't have any account?</Link>
                             </label>
                             <label className="label">
-                                <Link to="/register" className="label-text-alt link link-hover">Don't have any account?</Link>
+                                <Link to="/reset" className="label-text-alt link link-hover">Forgot password?</Link>
                             </label>
                         </div>
                         <div className="form-control mt-6">
