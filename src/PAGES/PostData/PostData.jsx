@@ -18,7 +18,8 @@ const PostData = () => {
         const makingType = form.makingType.value;
         const serves = form.serves.value;
         const populerity = form.populerity.value;
-        const coffeeData = { title, authorImage, authorName, uploadDate, description, ratings, recipeImage, duration, makingType, serves, populerity };
+        const price = form.price.value;
+        const coffeeData = { title, authorImage, authorName, uploadDate, description, ratings, recipeImage, duration, makingType, serves, populerity, price };
         console.log(coffeeData)
 
         fetch('https://hero-server3.vercel.app/public', {
@@ -93,6 +94,10 @@ const PostData = () => {
                     <div className="md:col-span-1 col-span-2">
                         <label htmlFor="populerity" className='block mb-2 text-lg font-medium text-gray-700'>Populerity:</label>
                         <input className='input input-bordered w-full' type="text" name="populerity" id="populerity" placeholder="Populer or non Populer" required />
+                    </div>
+                    <div className="md:col-span-1 col-span-2">
+                        <label htmlFor="price" className='block mb-2 text-lg font-medium text-gray-700'>Price:</label>
+                        <input className='input input-bordered w-full' type="text" name="price" id="price" placeholder="Enter price" required />
                     </div>
 
                     {/* RECIPE IMAGE INPUT FIELD */}
