@@ -77,6 +77,26 @@ const router = createBrowserRouter([
         }
       },
       {
+        path: "/category_meal/:id",
+        element: <CategoryMeals />,
+        loader: ({params}) => fetch(`http://localhost:5000/categoryMeals/${params.id}`)
+      },
+      {
+        path: "/single_category_meal/:id",
+        element: <PrivateRoute><CarouselCardDetails /></PrivateRoute>,
+        loader: async ({ params }) => {
+          const result1 = await fetch(`http://localhost:5000/singleCategoryMeals/${params.id}`);
+          const carouselData = await result1.json();
+
+          const result2 = await fetch('http://localhost:5000/feature');
+          const featureData = await result2.json();
+          return {
+            carouselData,
+            featureData
+          }
+        }
+      },
+      {
         path: "/post",
         element: <PostData />,
       },
@@ -99,11 +119,6 @@ const router = createBrowserRouter([
       {
         path: "/logout",
         element: <Logout />
-      },
-      {
-        path: "/category_meal/:id",
-        element: <CategoryMeals />,
-        loader: ({params}) => fetch(`http://localhost:5000/categoryMeals/${params.id}`)
       },
       {
         path: '*',

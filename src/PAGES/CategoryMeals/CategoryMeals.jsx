@@ -1,17 +1,33 @@
 import React from 'react';
 import { FaRegCreditCard, FaClockRotateLeft, FaRegThumbsUp, FaRegBookmark } from 'react-icons/fa6';
 import { Link, useLoaderData } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import ScrollToTop from '../../SHARED/ScrollToTop/ScrollToTop';
 import { handleBookmark, handleCart } from '../BookmarkUtils/BookmarkUtils';
 
 const CategoryMeals = () => {
     const categoryMeal = useLoaderData()
     console.log(categoryMeal) 
     return (
+        <>
+            <ScrollToTop/>
+            <ToastContainer
+                position="top-center"
+                autoClose={2000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
         <div className='grid sm:grid-cols-2 xl:grid-cols-3 gap-10 my-20'>
                 {categoryMeal && categoryMeal.map((meal) => {
                     return (
                         <div key={meal?._id} className="p-2">
-                            <Link to={`/feature/${meal._id}`}><img className='' src={meal?.recipeImage} alt="" /></Link>
+                            <Link to={`/single_category_meal/${meal._id}`}><img className='' src={meal?.recipeImage} alt="" /></Link>
                             <div className="p-2">
                                 <div className="flex items-center justify-start gap-5">
                                     <span className='flex items-center text-xs '><FaClockRotateLeft />{meal?.duration}</span>
@@ -48,6 +64,7 @@ const CategoryMeals = () => {
                     )
                 })}
             </div>
+            </>
     );
 };
 

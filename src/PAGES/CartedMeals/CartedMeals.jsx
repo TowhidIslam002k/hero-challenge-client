@@ -25,7 +25,7 @@ const CartedMeals = () => {
 
     return (
         <>
-            <ScrollToTop />
+            {/* <ScrollToTop /> */}
             <ToastContainer
                 position="top-center"
                 autoClose={2000}

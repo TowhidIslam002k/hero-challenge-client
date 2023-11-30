@@ -9,6 +9,7 @@ import { FaClockRotateLeft, FaRegThumbsUp, FaRegBookmark, FaRegCreditCard } from
 import './TopCarousel.css'
 import { handleBookmark, handleCart } from '../../BookmarkUtils/BookmarkUtils';
 import { ToastContainer } from 'react-toastify';
+import ScrollToTop from '../../../SHARED/ScrollToTop/ScrollToTop';
 
 const TopCarousel = () => {
     const settings = {
@@ -50,6 +51,7 @@ const TopCarousel = () => {
 
     return (
         <>
+            <ScrollToTop />
             <ToastContainer
                 position="top-center"
                 autoClose={2000}

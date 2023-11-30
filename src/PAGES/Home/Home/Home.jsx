@@ -22,7 +22,7 @@ const Home = () => {
         window.scroll({ top: 0, behavior: 'smooth' });
     }
 
-    // if user is lot logged in then show the login message 
+    // if user is not logged in then show the login message 
     useEffect(() => {
         setTimeout(() => {
             const hasShownToast = sessionStorage.getItem('hasShownLoginToast');
