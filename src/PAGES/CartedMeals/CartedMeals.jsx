@@ -21,24 +21,17 @@ const CartedMeals = () => {
 
         localStorage.setItem('cart', JSON.stringify(updatedcart));
         setcart(updatedcart);
-        toast.error('Meal remove from cart!');
+        toast.error('Meal remove from cart!', {
+            position: toast.POSITION.TOP_CENTER,
+            autoClose: 3000,
+        });
     };
 
     return (
         <>
             {/* <ScrollToTop /> */}
-            <ToastContainer
-                position="top-center"
-                autoClose={2000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light"
-            />
+            <ToastContainer/>
+            
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
                 <h1 className="text-3xl font-semibold mb-6">Carted Meals</h1>
                 <div className="">

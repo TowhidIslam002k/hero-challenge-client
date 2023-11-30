@@ -16,18 +16,7 @@ const CarouselCardDetails = () => {
     const { title, authorImage, authorName, description, duration, makingType, populerity, ratings, recipeImage, serves, uploadDate } = carouselData;
     return (
         <>
-            <ToastContainer
-                position="top-center"
-                autoClose={2000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light"
-            />
+            <ToastContainer />
             <div className='md:grid grid-cols-3 gap-10 mt-24'>
                 <ScrollToTop />
                 <div className="col-span-2">

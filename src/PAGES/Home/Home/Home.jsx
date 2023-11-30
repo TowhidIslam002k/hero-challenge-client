@@ -36,7 +36,7 @@ const Home = () => {
                     </span>
                 </div>, {
                     position: toast.POSITION.TOP_CENTER,
-                    autoClose: 6000,
+                    autoClose: 4000,
                 })
                 sessionStorage.setItem("hasShownLoginToast", true)
             }
@@ -44,9 +44,9 @@ const Home = () => {
     }, [])
 
     if (loading) {
-        <div className=' flex justify-center items-center min-h-screen'>
-            <progress className="progress w-96"></progress>
-        </div>
+        return<div className=' flex justify-center items-center min-h-screen'>
+        <progress className="progress w-96"></progress>
+    </div>
     }
     return (
         <div>

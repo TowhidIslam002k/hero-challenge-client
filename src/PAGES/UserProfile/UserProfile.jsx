@@ -3,7 +3,8 @@ import { UserContext } from '../../ContextProviders/AuthProviders';
 
 const UserProfile = () => {
     const {user} = useContext(UserContext)
-    const { displayName, email, emailVerified, photoURL } = user
+    const { displayName, email, emailVerified, photoURL } = user;
+    
   return (
     <div className="bg-white shadow-md p-4 sm:p-6 md:p-8 max-w-md mx-auto rounded-md my-24">
       <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start">

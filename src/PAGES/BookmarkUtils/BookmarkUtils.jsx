@@ -13,9 +13,15 @@ export const handleBookmark = (meal) => {
     if (!isBookmarked) {
         const updatedBookmarks = [...existingBookmarks, meal];
         localStorage.setItem('bookmarks', JSON.stringify(updatedBookmarks));
-        toast.success('Meal add to favorite successfully!');
+        toast.success('Meal add to favorite successfully!', {
+            position: toast.POSITION.TOP_CENTER,
+            autoClose: 3000,
+        });
     } else {
-        toast.error('Meal is already added to favorite!');
+        toast.error('Meal is already added to favorite!', {
+            position: toast.POSITION.TOP_CENTER,
+            autoClose: 3000,
+        });
     }
 };
 
@@ -26,10 +32,14 @@ export const handleCart = (meal) => {
     if (!iscarted) {
         const updatedcarts = [...existingcarts, meal];
         localStorage.setItem('cart', JSON.stringify(updatedcarts));
-        // alert('Meal carted successfully!');
-        toast.success('Meal add to card successfully!',);
+        toast.success('Meal add to card successfully!', {
+            position: toast.POSITION.TOP_CENTER,
+            autoClose: 3000,
+        });
     } else {
-        // alert('Meal removed from carts!');
-        toast.error('Meal is already added to cart!',);
+        toast.error('Meal is already added to cart!', {
+            position: toast.POSITION.TOP_CENTER,
+            autoClose: 3000,
+        });
     }
 };

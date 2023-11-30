@@ -1,6 +1,8 @@
 import { useContext } from 'react';
 import { Navigate, useLocation, } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import { UserContext } from '../../ContextProviders/AuthProviders';
+
 
 const PrivateRoute = ({ children }) => {
     const { user, loading } = useContext(UserContext)
@@ -17,12 +19,22 @@ const PrivateRoute = ({ children }) => {
             return children;
         }
         else {
-            alert('Please verify your email address.')
-            return <Navigate to='/recipe'></Navigate>;
+            Swal.fire({
+                title: 'Email not verifed!',
+                text: 'Please verify your email address.',
+                icon: 'error',
+                confirmButtonText: 'OK'
+            })
+            return <Navigate to='/'></Navigate>;
         }
     }
     if (!user) {
-        alert('This is a Private area. Please login or sign up to get all access.');
+        Swal.fire({
+            title: 'Login or Sign up',
+            text: 'This is a Private area. Please login or sign up to get all access.',
+            icon: 'error',
+            confirmButtonText: 'OK'
+        })
         return <Navigate to='/login' state={{ from: location }} replace></Navigate>;
     }
 };

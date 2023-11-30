@@ -8,38 +8,27 @@ const PublicPost = () => {
     const publicData = useLoaderData();
     return (
         <>
-            <ToastContainer
-                position="top-center"
-                autoClose={2000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light"
-            />
+            <ToastContainer />
             <div className='grid sm:grid-cols-2 xl:grid-cols-3 gap-10 my-20'>
                 {publicData && publicData.map((meal) => {
                     return (
                         <div key={meal?._id} className="p-2">
-                            <Link to={`/feature/${meal?._id}`}><img className='' src={meal?.recipeImage} alt="" /></Link>
+                            <Link to={`/public/${meal?._id}`}><img className='md:h-72 lg:h-80 xl:h-96' src={meal?.recipeImage} alt="" /></Link>
                             <div className="p-2">
                                 <div className="flex items-center justify-start gap-5">
                                     <span className='flex items-center text-xs '><FaClockRotateLeft />{meal?.duration}</span>
                                     <span className='flex items-center text-xs'><FaRegThumbsUp />{meal?.makingType}</span>
                                 </div>
 
-                                <Link to={`/feature/${meal?._id}`}><h1 className='text-2xl lg:text-md mt-2'>{meal?.title}</h1></Link>
+                                <Link to={`/public/${meal?._id}`}><h1 className='text-2xl lg:text-md mt-2'>{meal?.title}</h1></Link>
 
                                 <div className='mt-3'>
                                     <p className=' text-sm'>
-                                        {meal?.description.length < 150 ? <>{meal?.description}</> : <>{meal?.description.slice(0, 150)}...<Link className='text-blue-600 font-bold underline' to={`/feature/${meal?._id}`}>read more</Link></>}
+                                        {meal?.description.length < 150 ? <>{meal?.description}</> : <>{meal?.description.slice(0, 150)}...<Link className='text-blue-600 font-bold underline' to={`/public/${meal?._id}`}>read more</Link></>}
                                     </p>
                                     <p className=' text-violet-700 font-bold text-lg sm:text-md py-2'>Price: ${meal?.price}</p>
                                     <div className="flex items-center gap-4 mt-2 pr-5">
-                                        <Link to={`/feature/${meal?._id}`} className='w-2/12'><img className='rounded-full' src={meal?.authorImage} alt="" /></Link>
+                                        <Link to={`/public/${meal?._id}`} className='w-2/12'><img className='rounded-full' src={meal?.authorImage} alt="" /></Link>
                                         <div className=" flex-grow">
                                             <p className='authorInfo-respo'>{meal?.authorName}</p>
                                             <p className='authorInfo-respo'>{meal?.uploadDate}</p>

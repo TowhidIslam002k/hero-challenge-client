@@ -11,18 +11,7 @@ const CategoryMeals = () => {
     return (
         <>
             <ScrollToTop/>
-            <ToastContainer
-                position="top-center"
-                autoClose={2000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light"
-            />
+            <ToastContainer />
         <div className='grid sm:grid-cols-2 xl:grid-cols-3 gap-10 my-20'>
                 {categoryMeal && categoryMeal.map((meal) => {
                     return (

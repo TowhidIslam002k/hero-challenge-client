@@ -52,18 +52,7 @@ const TopCarousel = () => {
     return (
         <>
             <ScrollToTop />
-            <ToastContainer
-                position="top-center"
-                autoClose={2000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light"
-            />
+            <ToastContainer />
             <div className='mt-24 mb-5'>
                 <Slider {...settings}>
                     {allMeals && allMeals.slice(0, 6).map((meal) => {

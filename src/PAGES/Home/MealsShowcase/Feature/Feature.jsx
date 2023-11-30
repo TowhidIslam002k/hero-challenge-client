@@ -15,18 +15,7 @@ const Feature = () => {
 
     return (
         <div>
-            <ToastContainer
-                position="top-center"
-                autoClose={2000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="light"
-            />
+            <ToastContainer />
             <div className="flex w-full items-center gap-5 mb-10">
                 <h1 className='text-xl font-bold'>Feature</h1>
                 <div className="cus-border mt-2"></div>

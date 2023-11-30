@@ -5,7 +5,6 @@ import './Login.css';
 import { FaEyeSlash, FaEye } from 'react-icons/fa6'
 import google from '../../assets/images/google.png'
 import github from '../../assets/images/github.png'
-import ScrollToTop from '../../SHARED/ScrollToTop/ScrollToTop';
 
 const Login = () => {
     const [err, setErr] = useState('');
@@ -28,7 +27,6 @@ const Login = () => {
             .then(result => {
                 const userCredential = result.user;
                 console.log(userCredential);
-                // alert('Logged in successfully')
                 if (!userCredential.emailVerified) {
                     return window.alert("Please verify your account by clicking on the link sent to you at " + userCredential.email);
                 }
@@ -71,7 +69,7 @@ const Login = () => {
     };
 
     
-    //set loader.......................
+    // set loader.......................
     // if (loading) {
     //     return <div className=' flex justify-center items-center min-h-screen'>
     //         <progress className="progress w-96"></progress>
@@ -80,9 +78,8 @@ const Login = () => {
 
     return (
         <>
-        <ScrollToTop />
-        <div className="hero min-h-screen bg-base-200 mt-16">
-            <div className="hero-content flex-col md:flex-row-reverse">
+        <div className="hero min-h-screen bg-base-200 mt-16 w-auto ">
+            <div className="hero-content flex-col md:flex-row-reverse ">
                 <div className="text-center md:text-left">
                     <h1 id='resize-font' className="text-5xl text-primary font-bold">Login now!</h1>
                     <p id='suggest' className='py-6 font-bold'>Login with your email and password to get more access. Your data is secure with us.</p>
@@ -121,7 +118,7 @@ const Login = () => {
                                 <Link to="/reset" className="label-text-alt link link-hover">Forgot password?</Link>
                             </label>
                             <label className="label">
-                                <Link to="/signup" className="label-text-alt link link-hover">Don't have any account?</Link>
+                                <Link to="/register" className="label-text-alt link link-hover">Don't have any account?</Link>
                             </label>
                         </div>
                         <div className="form-control mt-6">

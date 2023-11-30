@@ -5,7 +5,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FaEyeSlash, FaEye } from 'react-icons/fa6'
 import google from '../../assets/images/google.png'
 import github from '../../assets/images/github.png'
-import ScrollToTop from '../../SHARED/ScrollToTop/ScrollToTop';
 import { UserContext } from '../../ContextProviders/AuthProviders';
 
 
@@ -32,14 +31,14 @@ const Register = () => {
             setError('Password should be taken at least 8 character');
             return
         }
-        // if (!/(?=.*[A-Z])/.test(password)) {
-        //     setError('Please add at least one uppercase latter.');
-        //     return;
-        // }
-        // else if (!/(?=.*[0-9])/.test(password)) {
-        //     setError('Please add at least one number.');
-        //     return;
-        // }
+        if (!/(?=.*[A-Z])/.test(password)) {
+            setError('Please add at least one uppercase latter.');
+            return;
+        }
+        else if (!/(?=.*[0-9])/.test(password)) {
+            setError('Please add at least one number.');
+            return;
+        }
         // else if (!/(?=.*[!@#$&*])/.test(password)) {
         //     setError("Please add atleast one special character[!@#$&*].");
         //     return;
@@ -53,7 +52,7 @@ const Register = () => {
 
                 verifyEmail()
                     .then(() => {
-                        alert("We've sent a verification email. Please check your email and verify your account. Then login with you email and password.");
+                        alert("We've sent a verification email. Please check your email and verify your account.");
                         return navigate('/')
                     })
                     .catch(err => {
@@ -104,7 +103,7 @@ const Register = () => {
         setComfirmPasswordVisible(!confirmPasswordVisible);
     }
 
-    //set loader.......................
+    // set loader.......................
     // if (loading) {
     //     return <div className=' flex justify-center items-center min-h-screen'>
     //         <progress className="progress w-96"></progress>
@@ -112,7 +111,6 @@ const Register = () => {
     // }
 
     return (<>
-        <ScrollToTop />
         <div className="hero min-h-screen bg-base-200 mt-16">
             <div className="hero-content flex-col md:flex-row-reverse">
                 <div className="text-center md:text-left">

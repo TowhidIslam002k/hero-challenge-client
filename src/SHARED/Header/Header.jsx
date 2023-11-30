@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { UserContext } from '../../ContextProviders/AuthProviders';
 import ActiveLink from '../Activelink/ActiveLink';
 import './Header.css';
-import { FaRegBookmark } from "react-icons/fa6";
+import { FaRegBookmark, FaRegUser } from "react-icons/fa6";
 
 const Header = () => {
     const { user, loading } = useContext(UserContext);
@@ -42,14 +42,6 @@ const Header = () => {
         }
     }
 
-    if (loading) {
-        return (
-            <div className=' flex justify-center items-center min-h-screen'>
-                <progress className="progress w-96"></progress>
-            </div>
-        );
-    }
-
     return (
         <>
             <div
@@ -68,7 +60,7 @@ const Header = () => {
                         </span>
                     </ActiveLink>
                     <ActiveLink to="/cart">{`Cart ${totalPrice === 0 ? '($0.00)' : ('$' + totalPrice)}`}</ActiveLink>
-                    {!user && <ActiveLink to="/register">register</ActiveLink>}
+                    {loading ? '' : (!user && <ActiveLink to="/register">register</ActiveLink>)}
                 </div>
 
                 {/* when display is large then hide the hamburger menu  */}
@@ -88,7 +80,7 @@ const Header = () => {
 
 
                 {/* if user exist then show the user image else show login button */}
-                {user ? (
+                { loading? <FaRegUser className='font-2xl mr-5' /> : (user ? (
                     <div className="dropdown dropdown-end">
                         <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
@@ -111,7 +103,7 @@ const Header = () => {
                     </div>
                 ) : (
                     <Link to="/login"><button className="btn btn-warning login-btn-res">Login</button></Link>
-                )}
+                ))}
 
 
                 {/* Here Design a navbar for less then lagre devices  */}
@@ -128,7 +120,7 @@ const Header = () => {
                             <ActiveLink to="/cart">{`Cart ${totalPrice === 0 ? '($0.00)' : ('$' + totalPrice)}`}</ActiveLink>
                             <ActiveLink to="/about">About Us</ActiveLink>
                             <ActiveLink to='/contact'>Contact</ActiveLink>
-                            {!user && <ActiveLink to="/register">register</ActiveLink>}
+                            {loading ? '' : (!user && <ActiveLink to="/register">register</ActiveLink>)}
                         </div>
                     )}
 

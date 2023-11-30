@@ -1,5 +1,12 @@
 @media(max-width: 310px){
     .respo{
-        width: 235px !important;
+        width: 230px !important;
+        margin-left: 0px !important;
+    }
+}
+@media(max-width: 290px){
+    .respo{
+        width: 200px !important;
+        margin-left: 0px !important;
     }
 }
