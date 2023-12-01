@@ -37,8 +37,6 @@ const Header = () => {
     for (let i = 0; i < getItems.length; i++) {
         if (!isNaN(parseInt(getItems[i].price))) {
             totalPrice += parseInt(getItems[i].price);
-        } else {
-            console.log("not a number");
         }
     }
 

@@ -3,6 +3,9 @@
         width: 230px !important;
         margin-left: 0px !important;
     }
+    .custom-bg-set{
+        background-color:#FFFFFF !important;
+    }
 }
 
 @media(max-width: 250px){

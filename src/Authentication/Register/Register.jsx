@@ -113,7 +113,7 @@ const Register = () => {
     // }
 
     return (<>
-        <div className="hero min-h-screen bg-base-200 mt-16">
+        <div className="hero min-h-screen bg-base-200 mt-16 custom-bg-set">
             <div className="hero-content flex-col md:flex-row-reverse">
                 <div className="text-center md:text-left">
                     <h1 id='resize-font' className="text-5xl text-primary font-bold">Sign up now!</h1>
