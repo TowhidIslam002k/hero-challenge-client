@@ -46,7 +46,7 @@ const Login = () => {
         .then(result => {
             console.log(result.user)
             setErr('')
-            navigate('/')
+            navigate(from, { replace: true })
         })
         .catch(err => setErr(err.message))
     }
@@ -56,7 +56,7 @@ const Login = () => {
         .then(result => {
             console.log(result.user)
             setErr('')
-            navigate('/')
+            navigate(from, { replace: true })
         })
         .catch(err => setErr(err.message))
     }
