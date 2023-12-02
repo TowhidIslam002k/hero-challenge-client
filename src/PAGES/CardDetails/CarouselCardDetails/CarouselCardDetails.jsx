@@ -15,7 +15,7 @@ import useSetTitle from '../../../CustomHooks/useSetTitle';
 const CarouselCardDetails = () => {
     useSetTitle('Meal Details')
     const { carouselData, featureData } = useLoaderData();
-    const { title, authorImage, authorName, description, duration, makingType, populerity, ratings, recipeImage, serves, uploadDate } = carouselData;
+    const { title, authorImage, authorName, description, duration, makingType, populerity, ratings, recipeImage, serves, uploadDate, price } = carouselData;
     return (
         <>
             <ToastContainer />
@@ -34,10 +34,10 @@ const CarouselCardDetails = () => {
                         <div className="">
                             <div className="sm:flex items-center gap-2 set-social-icon grid grid-cols-3">
                                 <span className='font-bold text-2xl sm:text:1xl'>Share: </span>
-                                <span className='bg-blue-700 text-white flex gap-2 items-center py-2 px-3 text-sm set-custom-padding'><FaFacebook /> Facebook</span>
-                                <span className='bg-cyan-600 text-white flex gap-2 items-center py-2 px-3 text-sm set-custom-padding'><FaTwitter /> Twitter</span>
-                                <span className='bg-red-600 text-white flex gap-2 items-center py-2 px-3 text-sm set-custom-padding'><FaLinkedin /> Linkedin</span>
-                                <span className='bg-blue-500 text-white flex gap-2 items-center py-2 px-3 text-sm set-custom-padding'><FaPinterest /> Pinterest</span>
+                                <a href='https://www.facebook.com/towhid002k' className='bg-blue-700 text-white flex gap-2 items-center py-2 px-3 text-sm set-custom-padding'><FaFacebook /> Facebook</a>
+                                <Link className='bg-cyan-600 text-white flex gap-2 items-center py-2 px-3 text-sm set-custom-padding'><FaTwitter /> Twitter</Link>
+                                <Link className='bg-red-600 text-white flex gap-2 items-center py-2 px-3 text-sm set-custom-padding'><FaLinkedin /> Linkedin</Link>
+                                <Link className='bg-blue-500 text-white flex gap-2 items-center py-2 px-3 text-sm set-custom-padding'><FaPinterest /> Pinterest</Link>
                             </div>
                         </div>
                     </div>
@@ -53,8 +53,10 @@ const CarouselCardDetails = () => {
                         <div className="w-full sm:w-20 md:w-8 lg:w-24 xl:w-36 h-1 border border-b-gray-400 border-t-gray-400"></div>
                     </div>
 
+                    <p className=' text-violet-700 font-bold text-lg sm:text-md py-2 mt-3'>Price: ${price}</p>
+
                     {/* details================== */}
-                    <div className="pr-3 mt-8">
+                    <div className="pr-3 mt-6">
                         <p className=' text-gray-600'>{description}</p>
                     </div>
 

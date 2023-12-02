@@ -1,16 +1,12 @@
-@media(max-width: 350px){
-    .respo{
-        width: 230px !important;
-        margin-left: 0px !important;
-    }
+@media(max-width: 380px){
     .custom-bg-set{
         background-color:#FFFFFF !important;
+        padding-left: 0 !important;
     }
 }
 
-@media(max-width: 250px){
-    .respo{
-        width: 200px !important;
-        margin-left: 0px !important;
+@media(max-width: 360px){
+    .custom-bg-set{
+        margin-left: -15px !important;
     }
 }
