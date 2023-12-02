@@ -36,46 +36,15 @@ const router = createBrowserRouter([
         element: <Home />
       },
       {
-        path: "/carousel/:id",
+        path: "/meal/:id",
         element: <CarouselCardDetails />,
         loader: async ({ params }) => {
-          const result1 = await fetch(`https://hero-server3.vercel.app/meals/${params.id}`);
+          const result1 = await fetch(`https://hero-server3.vercel.app/meal/${params.id}`);
           const carouselData = await result1.json();
 
           const result2 = await fetch('https://hero-server3.vercel.app/feature');
           const featureData = await result2.json();
 
-          return {
-            carouselData,
-            featureData
-          }
-        }
-      },
-      {
-        path: "/feature/:id",
-        element: <CarouselCardDetails />,
-        loader: async ({ params }) => {
-          const result1 = await fetch(`https://hero-server3.vercel.app/feature/${params.id}`);
-          const carouselData = await result1.json();
-
-          const result2 = await fetch('https://hero-server3.vercel.app/feature');
-          const featureData = await result2.json();
-
-          return {
-            carouselData,
-            featureData
-          }
-        }
-      },
-      {
-        path: "/populer/:id",
-        element: <CarouselCardDetails />,
-        loader: async ({ params }) => {
-          const result1 = await fetch(`https://hero-server3.vercel.app/populer/${params.id}`);
-          const carouselData = await result1.json();
-
-          const result2 = await fetch('https://hero-server3.vercel.app/feature');
-          const featureData = await result2.json();
           return {
             carouselData,
             featureData

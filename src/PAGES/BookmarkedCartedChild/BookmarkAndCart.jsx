@@ -22,7 +22,7 @@ const BookmarkAndCart = ({ meal, handleRemoveBookmark, children }) => {
                     {/* add price */}
                     <div className="sm:flex gap-5 items-center justify-start">
                         <div className="flex items-center gap-4 mt-4">
-                            <Link to={`/feature/${meal?._id}`} className='custom-price-width-set xl:w-3/12 lg:w-2/12 md:w-3/12 sm:w-3/12 w-2/12'><img className='rounded-full' src={meal?.authorImage} alt="" /></Link>
+                            <Link to={`/meal/${meal?._id}`} className='custom-price-width-set xl:w-3/12 lg:w-2/12 md:w-3/12 sm:w-3/12 w-2/12'><img className='rounded-full' src={meal?.authorImage} alt="" /></Link>
                             <div className=" flex-grow">
                                 <p className='authorInfo-respo'>{meal?.authorName}</p>
                                 <p className='authorInfo-respo'>{meal?.uploadDate}</p>

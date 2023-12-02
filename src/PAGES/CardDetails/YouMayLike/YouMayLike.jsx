@@ -12,7 +12,7 @@ const YouMayLike = ({ data }) => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-16">
                 {
                     data && data.slice(0, 4).map(meal => <div key={meal?._id} className="">
-                        <Link to={`/feature/${meal?._id}`}>
+                        <Link to={`/meal/${meal?._id}`}>
                             <img src={meal?.recipeImage} alt="" />
                             <p className="font-bold mt-5 sm:text-lg">{meal?.title}</p>
                         </Link>

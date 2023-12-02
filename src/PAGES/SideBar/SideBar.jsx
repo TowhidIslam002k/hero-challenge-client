@@ -40,7 +40,7 @@ const SideBar = ({ data }) => {
                 <p className='font-bold text-center text-lg -m-6'>Latest Recipe</p>
                 {
                     data && data.slice(4, 7).map(meal => <div key={meal?._id} className="">
-                        <Link to={`/feature/${meal?._id}`}>
+                        <Link to={`/meal/${meal?._id}`}>
                             <div className="lg:flex gap-4 mb-5 mt-10">
                                 <img className='lg:w-2/5' src={meal?.recipeImage} alt="" />
                                 <p className="font-semibold mt-5 sm:text-lg">{meal?.title}</p>

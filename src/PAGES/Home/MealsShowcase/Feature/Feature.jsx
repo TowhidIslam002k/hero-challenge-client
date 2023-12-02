@@ -23,22 +23,22 @@ const Feature = () => {
             {feature && feature.slice(0, 1).map((meal) => {
                 return (
                     <div key={meal?._id} className="p-2">
-                        <Link to={`/feature/${meal?._id}`}><img className='' src={meal?.recipeImage} alt="" /></Link>
+                        <Link to={`/meal/${meal?._id}`}><img className='' src={meal?.recipeImage} alt="" /></Link>
                         <div className="p-2">
                             <div className="flex items-center justify-start gap-5">
                                 <span className='flex items-center text-xs '><FaClockRotateLeft />{meal?.duration}</span>
                                 <span className='flex items-center text-xs'><FaRegThumbsUp />{meal?.makingType}</span>
                             </div>
 
-                            <Link to={`/feature/${meal?._id}`}><h1 className='text-2xl lg:text-md mt-2'>{meal?.title}</h1></Link>
+                            <Link to={`/meal/${meal?._id}`}><h1 className='text-2xl lg:text-md mt-2'>{meal?.title}</h1></Link>
 
                             <div className='mt-3'>
                                 <p className=' text-sm'>
-                                    {meal?.description.length < 150 ? <>{meal?.description}</> : <>{meal?.description.slice(0, 150)}...<Link className='text-blue-600 font-bold underline' to={`/feature/${meal?._id}`}>read more</Link></>}
+                                    {meal?.description.length < 150 ? <>{meal?.description}</> : <>{meal?.description.slice(0, 150)}...<Link className='text-blue-600 font-bold underline' to={`/meal/${meal?._id}`}>read more</Link></>}
                                 </p>
                                 <p className=' text-violet-700 font-bold text-lg sm:text-sm'>Price: ${meal?.price}</p>
                                 <div className="flex items-center gap-4 mt-4 pr-5">
-                                    <Link to={`/feature/${meal?._id}`} className='w-2/12'><img className='rounded-full' src={meal?.authorImage} alt="" /></Link>
+                                    <Link to={`/meal/${meal?._id}`} className='w-2/12'><img className='rounded-full' src={meal?.authorImage} alt="" /></Link>
                                     <div className=" flex-grow">
                                         <p className='authorInfo-respo'>{meal?.authorName}</p>
                                         <p className='authorInfo-respo'>{meal?.uploadDate}</p>
