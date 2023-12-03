@@ -116,11 +116,10 @@ const Header = () => {
                                 </span>
                             </ActiveLink>
                             <ActiveLink to="/cart">{`Cart ${totalPrice === 0 ? '($0.00)' : ('$' + totalPrice)}`}</ActiveLink>
-                            <ActiveLink to='/public'>Publlic-Post</ActiveLink>
                             <ActiveLink to="/about">About Us</ActiveLink>
                             <ActiveLink to='/contact'>Contact</ActiveLink>
                             {loading ? '' : (!user && <ActiveLink to="/register">register</ActiveLink>)}
-                            <ActiveLink to='/logout'>Logout</ActiveLink>
+                            {user && <ActiveLink to='/logout'>Logout</ActiveLink>}
                         </div>
                     )}
 

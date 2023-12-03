@@ -24,7 +24,7 @@ const PostData = () => {
         const coffeeData = { title, authorImage, authorName, uploadDate, description, ratings, recipeImage, duration, makingType, serves, populerity, price };
         console.log(coffeeData)
 
-        fetch('https://hero-server3.vercel.app/feature', {
+        fetch('https://hero-server3.vercel.app/public', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -41,7 +41,7 @@ const PostData = () => {
                         icon: 'success',
                         confirmButtonText: 'OK'
                     })
-                    // navigate('/public')
+                    navigate('/public')
                 }
             })
     }
