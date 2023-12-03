@@ -12,6 +12,7 @@ import { ToastContainer } from 'react-toastify';
 import ScrollToTop from '../../../SHARED/ScrollToTop/ScrollToTop';
 
 const TopCarousel = () => {
+    const [loading, setLoading] = useState(true);
     const settings = {
         infinite: true,
         speed: 500,
@@ -46,7 +47,10 @@ const TopCarousel = () => {
     useEffect(() => {
         fetch('https://hero-server3.vercel.app/onDemand')
             .then(res => res.json())
-            .then(data => setAllMeals(data))
+            .then(data => {
+                setAllMeals(data)
+                setLoading(false)
+            })
     }, [])
 
     return (
@@ -54,7 +58,8 @@ const TopCarousel = () => {
             <ScrollToTop />
             <ToastContainer />
             <div className='mt-24 mb-5'>
-                <Slider {...settings}>
+                {loading ? <p>Loading...</p> :(
+                    <Slider {...settings}>
                     {allMeals && allMeals.slice(0, 6).map((meal) => {
                         return (
                             <div key={meal?._id} className="p-2 bg-base-200 relative">
@@ -95,6 +100,7 @@ const TopCarousel = () => {
                         )
                     })}
                 </Slider>
+                )}
             </div>
         </>
     );

@@ -6,15 +6,18 @@ import Slider from 'react-slick';
 
 
 const IconCarousel = () => {
+    const [loading, setLoadig] = useState(true);
     const [foodIcons, setFoodIcons] = useState([]);
     useEffect(() => {
         fetch('https://hero-server3.vercel.app/cFoods')
             .then(res => res.json())
-            .then(data => setFoodIcons(data))
+            .then(data => {
+                setFoodIcons(data)
+                setLoadig(false)
+            })
     }, [])
 
     const settings = {
-        // dots: true,
         infinite: true,
         speed: 500,
         slidesToShow: 8,
@@ -29,7 +32,6 @@ const IconCarousel = () => {
                     slidesToShow: 6,
                     slidesToScroll: 1,
                     infinite: true,
-                    // dots: true
                 }
             },
             {
@@ -38,7 +40,6 @@ const IconCarousel = () => {
                     slidesToShow: 5,
                     slidesToScroll: 1,
                     infinite: true,
-                    // dots: true
                 }
             },
             {
@@ -70,7 +71,7 @@ const IconCarousel = () => {
     }
     return (
         <div className='my-20 border border-spacing-1 py-3'>
-            <Slider {...settings}>
+            {loading ? <p>Loading...</p> : (<Slider {...settings}>
                 {
                     foodIcons && foodIcons.map((fi) => {
                         return (
@@ -79,9 +80,10 @@ const IconCarousel = () => {
                                 <p className='text-center'>{fi.title}</p>
                             </div>
                         )
-                    })
+                    }
+                    )
                 }
-            </Slider>
+            </Slider>)}
         </div>
     );
 };
