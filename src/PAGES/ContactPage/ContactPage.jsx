@@ -14,7 +14,7 @@ const ContactPage = () => {
     const contactData = { name, email, message };
     console.log(contactData);
 
-    fetch('http://localhost:5000/contact', {
+    fetch('https://hero-server3.vercel.app/contact', {
       method: 'POST',
       headers: {
         "Content-Type": "application/json"
