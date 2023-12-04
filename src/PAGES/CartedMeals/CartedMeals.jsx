@@ -4,6 +4,8 @@ import { toast, ToastContainer } from 'react-toastify';
 import BookmarkAndCart from '../BookmarkedCartedChild/BookmarkAndCart';
 import { Link } from 'react-router-dom';
 import useSetTitle from '../../CustomHooks/useSetTitle';
+import GoToTopIcon from '../../SHARED/GoToTopIcon/GoToTopIcon';
+import { FaCircleArrowUp } from 'react-icons/fa6';
 
 const CartedMeals = () => {
     useSetTitle('Cart')
@@ -31,7 +33,7 @@ const CartedMeals = () => {
 
     return (
         <>
-            {/* <ScrollToTop /> */}
+            <ScrollToTop />
             <ToastContainer/>
             
             <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -46,6 +48,11 @@ const CartedMeals = () => {
                         ))
                     )}
                 </div>
+            </div>
+
+            {/* scroll to top icon */}
+            <div className="fixed bottom-6 right-6">
+                <span onClick={GoToTopIcon} className='text-3xl'><FaCircleArrowUp /></span>
             </div>
         </>
     );

@@ -5,9 +5,10 @@ import './Login.css';
 import { FaEyeSlash, FaEye } from 'react-icons/fa6'
 import google from '../../assets/images/google.png'
 import github from '../../assets/images/github.png'
+import useSetTitle from '../../CustomHooks/useSetTitle';
 
 const Login = () => {
-    useLocation("Login")
+    useSetTitle("Login")
     const [err, setErr] = useState('');
     const navigate = useNavigate();
     const { loginUser, loginWithGoogle, loginWithGithub, loading } = useContext(UserContext);

@@ -25,7 +25,7 @@ const Feature = () => {
                     <div className="cus-border mt-2"></div>
                 </div>
 
-                {loading ? <p>Loading</p> : (<div>
+                {loading ? <p>Loading...</p> : (<div>
                     {feature && feature.slice(0, 1).map((meal) => {
                         return (
                             <div key={meal?._id} className="p-2">

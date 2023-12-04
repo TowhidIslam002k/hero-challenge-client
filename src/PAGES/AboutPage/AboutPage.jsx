@@ -1,9 +1,13 @@
-import React from 'react';
+import { FaCircleArrowUp } from 'react-icons/fa6';
 import useSetTitle from '../../CustomHooks/useSetTitle';
+import GoToTopIcon from '../../SHARED/GoToTopIcon/GoToTopIcon';
+import ScrollToTop from '../../SHARED/ScrollToTop/ScrollToTop';
 
 const AboutPage = () => {
   useSetTitle('About')
   return (
+    <>
+    <ScrollToTop />
     <div className="bg-gray-100 min-h-screen mt-16">
       <div className="container mx-auto p-8">
         <h1 className="text-4xl font-bold mb-6">About Us</h1>
@@ -44,6 +48,12 @@ const AboutPage = () => {
         </p>
       </div>
     </div>
+
+    {/* scroll to top icon */}
+    <div className="fixed bottom-6 right-6">
+                <span onClick={GoToTopIcon} className='text-3xl'><FaCircleArrowUp /></span>
+            </div>
+    </>
   );
 };
 

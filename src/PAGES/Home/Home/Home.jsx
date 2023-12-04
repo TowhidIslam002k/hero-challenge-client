@@ -14,13 +14,11 @@ import { useContext, useEffect } from 'react';
 import { UserContext } from '../../../ContextProviders/AuthProviders';
 import { toast, ToastContainer } from 'react-toastify';
 import { Link } from 'react-router-dom';
+import GoToTopIcon from '../../../SHARED/GoToTopIcon/GoToTopIcon';
 
 const Home = () => {
     const { loading, user } = useContext(UserContext)
     useSetTitle('Home')
-    const goToTop = () => {
-        window.scroll({ top: 0, behavior: 'smooth' });
-    }
 
     // if user is not logged in then show the login message 
     useEffect(() => {
@@ -57,7 +55,7 @@ const Home = () => {
                     </span>
                 </div>, {
                 position: toast.POSITION.TOP_CENTER,
-                autoClose: 4000,
+                autoClose: 3000,
             }
             );
         }, 300000);
@@ -91,8 +89,10 @@ const Home = () => {
             <FooterCar />
             <Partnership />
 
+            
+            {/* scroll to top icon */}
             <div className="fixed bottom-6 right-6">
-                <span onClick={goToTop} className=' text-3xl'><FaCircleArrowUp /></span>
+                <span onClick={GoToTopIcon} className='text-3xl'><FaCircleArrowUp /></span>
             </div>
         </div>
     );

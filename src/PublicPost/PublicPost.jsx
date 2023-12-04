@@ -1,15 +1,18 @@
 import React from 'react';
-import { FaClockRotateLeft, FaRegBookmark, FaRegCreditCard, FaRegThumbsUp } from 'react-icons/fa6';
+import { FaCircleArrowUp, FaClockRotateLeft, FaRegBookmark, FaRegCreditCard, FaRegThumbsUp } from 'react-icons/fa6';
 import { Link, useLoaderData } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import useSetTitle from '../CustomHooks/useSetTitle';
 import { handleBookmark, handleCart } from '../PAGES/BookmarkUtils/BookmarkUtils';
+import GoToTopIcon from '../SHARED/GoToTopIcon/GoToTopIcon';
+import ScrollToTop from '../SHARED/ScrollToTop/ScrollToTop';
 
 const PublicPost = () => {
     useSetTitle('Public-Post')
     const publicData = useLoaderData();
     return (
         <>
+            <ScrollToTop />
             <ToastContainer />
             <div className='grid sm:grid-cols-2 xl:grid-cols-3 gap-10 my-20'>
                 {publicData && publicData.map((meal) => {
@@ -51,6 +54,11 @@ const PublicPost = () => {
                         </div>
                     )
                 })}
+            </div>
+
+            {/* scroll to top icon */}
+            <div className="fixed bottom-6 right-6">
+                <span onClick={GoToTopIcon} className='text-3xl'><FaCircleArrowUp /></span>
             </div>
         </>
     );

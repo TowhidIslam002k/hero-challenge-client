@@ -7,15 +7,8 @@ import useSetTitle from '../../CustomHooks/useSetTitle';
 const Logout = () => {
     useSetTitle("Logout")
     const [showModal, setShowModal] = useState(false);
-    const { logOut, loading } = useContext(UserContext);
+    const { logOut } = useContext(UserContext);
     const navigate = useNavigate();
-    
-    //set loader.......................
-    // if (loading) {
-    //     return <div className=' flex justify-center items-center min-h-screen'>
-    //         <progress className="progress w-96"></progress>
-    //     </div>
-    // }
 
     const handleLogout = () => {
         logOut()
@@ -30,7 +23,7 @@ const Logout = () => {
     }
 
     return (
-        <div className="min-h-screen bg-cover bg-center flex items-center justify-center bg-slate-600 mt-16 ">
+        <div className="min-h-screen bg-cover bg-center flex items-center justify-center bg-slate-600 mt-16">
 
             <div className="relative z-10 p-6 bg-white rounded-lg shadow-lg text-center">
                 {/* Logout Message */}
