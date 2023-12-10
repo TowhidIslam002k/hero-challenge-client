@@ -93,6 +93,7 @@ const Header = () => {
                                     <span className="badge">New</span>
                                 </Link>
                             </li>
+                            <li><Link to={`/myUpload/${user?.uid}`}>My-Upload</Link></li>
                             <li><Link to='/public'>Publlic-Post</Link></li>
                             <li><Link to='/contact'>Contact</Link></li>
                             <li><a>Settings</a></li>

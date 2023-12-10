@@ -13,6 +13,16 @@ import ScrollToTop from '../../../SHARED/ScrollToTop/ScrollToTop';
 
 const TopCarousel = () => {
     const [loading, setLoading] = useState(true);
+    const [allMeals, setAllMeals] = useState([]);
+    useEffect(() => {
+        fetch('https://hero-server3.vercel.app/onDemand')
+            .then(res => res.json())
+            .then(data => {
+                setAllMeals(data)
+                setLoading(false)
+            })
+    }, [])
+    
     const settings = {
         infinite: true,
         speed: 500,
@@ -43,15 +53,6 @@ const TopCarousel = () => {
         ]
     };
 
-    const [allMeals, setAllMeals] = useState([]);
-    useEffect(() => {
-        fetch('https://hero-server3.vercel.app/onDemand')
-            .then(res => res.json())
-            .then(data => {
-                setAllMeals(data)
-                setLoading(false)
-            })
-    }, [])
 
     return (
         <>
@@ -60,7 +61,7 @@ const TopCarousel = () => {
             <div className='mt-24 mb-5'>
                 {loading ? <p>Loading...</p> :(
                     <Slider {...settings}>
-                    {allMeals && allMeals.slice(0, 6).map((meal) => {
+                    {allMeals.slice(0, 6).map((meal) => {
                         return (
                             <div key={meal?._id} className="p-2 bg-base-200 relative">
                                 <Link to={`/meal/${meal?._id}`}><img src={meal?.recipeImage} alt="" /></Link>

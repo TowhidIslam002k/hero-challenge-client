@@ -26,7 +26,7 @@ const Feature = () => {
                 </div>
 
                 {loading ? <p>Loading...</p> : (<div>
-                    {feature && feature.slice(0, 1).map((meal) => {
+                    {feature.slice(0, 1).map((meal) => {
                         return (
                             <div key={meal?._id} className="p-2">
                                 <Link to={`/meal/${meal?._id}`}><img className='' src={meal?.recipeImage} alt="" /></Link>

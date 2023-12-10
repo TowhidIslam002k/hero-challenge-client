@@ -1,10 +1,14 @@
+import { useContext } from 'react';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { UserContext } from '../../ContextProviders/AuthProviders';
 import useSetTitle from '../../CustomHooks/useSetTitle';
 
 const PostData = () => {
     useSetTitle('Post')
+    const {user} = useContext(UserContext)
+    const {uid} = user;
     const navigate = useNavigate()
     const handleAddCoffee = event => {
         event.preventDefault();
@@ -21,7 +25,7 @@ const PostData = () => {
         const serves = form.serves.value;
         const populerity = form.populerity.value;
         const price = form.price.value;
-        const coffeeData = { title, authorImage, authorName, uploadDate, description, ratings, recipeImage, duration, makingType, serves, populerity, price };
+        const coffeeData = { title, authorImage, authorName, uploadDate, description, ratings, recipeImage, duration, makingType, serves, populerity, price, uid };
         console.log(coffeeData)
 
         fetch('https://hero-server3.vercel.app/public', {
@@ -41,7 +45,7 @@ const PostData = () => {
                         icon: 'success',
                         confirmButtonText: 'OK'
                     })
-                    navigate('/public')
+                    navigate('/myUpload')
                 }
             })
     }

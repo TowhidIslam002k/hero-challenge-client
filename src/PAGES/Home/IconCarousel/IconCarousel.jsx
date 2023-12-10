@@ -73,7 +73,7 @@ const IconCarousel = () => {
         <div className='my-20 border border-spacing-1 py-3'>
             {loading ? <p>Loading...</p> : (<Slider {...settings}>
                 {
-                    foodIcons && foodIcons.map((fi) => {
+                    foodIcons.map((fi) => {
                         return (
                             <div key={fi._id}>
                                 <Link to={`/category_meal/${fi.category_id}`}><img className='w-3/5 mx-auto' src={fi.img} alt="" /></Link>

@@ -22,6 +22,7 @@ import CategoryMeals from './PAGES/CategoryMeals/CategoryMeals';
 import ContactPage from './PAGES/ContactPage/ContactPage';
 import ErrorPage from './PAGES/ErrorPage/ErrorPage';
 import Home from './PAGES/Home/Home/Home';
+import MyUpload from './PAGES/MyUpload/MyUpload';
 import PostData from './PAGES/PostData/PostData';
 import UserProfile from './PAGES/UserProfile/UserProfile';
 import PublicPost from './PublicPost/PublicPost';
@@ -138,6 +139,10 @@ const router = createBrowserRouter([
       {
         path: '*',
         element: <ErrorPage />
+      },{
+        path: '/myUpload/:uid',
+        element: <MyUpload />,
+        loader: ({params}) => fetch(`https://hero-server3.vercel.app/myUpload?uid=${params.uid}`)
       }
     ]
   }

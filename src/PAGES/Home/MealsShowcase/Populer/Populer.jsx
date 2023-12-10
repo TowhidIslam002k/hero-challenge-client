@@ -22,7 +22,7 @@ const Populer = () => {
             {
                 loading ? <p>Loading...</p> : (
                     <div>
-                        {populer && populer.slice(0, 4).map((meal) => {
+                        {populer.slice(0, 4).map((meal) => {
                             return (
                                 <div key={meal?._id}>
                                     <Link to={`/meal/${meal?._id}`}>
