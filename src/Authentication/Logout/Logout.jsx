@@ -12,10 +12,12 @@ const Logout = () => {
 
     const handleLogout = () => {
         logOut()
-            .then(() => { })
+            .then(() => {
+                localStorage.removeItem('access-token')
+                navigate('/login')
+            })
             .catch(err => console.log(err))
         setShowModal(false);
-        navigate('/login')
     };
 
     const goBack = () => {
@@ -27,22 +29,22 @@ const Logout = () => {
 
             <div className="relative z-10 p-6 bg-white rounded-lg shadow-lg text-center">
                 {/* Logout Message */}
-                { showModal ||
-                <>
-                <h2 className="text-3xl font-extrabold text-gray-900 mb-4">Logout Confirmation</h2>
-                <p className="text-lg text-gray-700 mb-8">Are you sure you want to log out from this website?</p>
+                {showModal ||
+                    <>
+                        <h2 className="text-3xl font-extrabold text-gray-900 mb-4">Logout Confirmation</h2>
+                        <p className="text-lg text-gray-700 mb-8">Are you sure you want to log out from this website?</p>
 
-                {/* Logout Button */}
-                <div className="flex justify-end">
-                    <button onClick={goBack} className='"bg-gray-300 hover:bg-gray-400 text-gray-700 font-semibold py-2 px-4 rounded mr-2'>Cancel</button>
-                    <button
-                        onClick={() => setShowModal(true)}
-                        className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-full inline-block"
-                    >
-                        Logout
-                    </button>
-                </div>
-                </>
+                        {/* Logout Button */}
+                        <div className="flex justify-end">
+                            <button onClick={goBack} className='"bg-gray-300 hover:bg-gray-400 text-gray-700 font-semibold py-2 px-4 rounded mr-2'>Cancel</button>
+                            <button
+                                onClick={() => setShowModal(true)}
+                                className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-full inline-block"
+                            >
+                                Logout
+                            </button>
+                        </div>
+                    </>
                 }
 
                 {/* Logout Confirmation Modal */}

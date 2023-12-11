@@ -1,6 +1,8 @@
+import { useState } from 'react';
 import { FaCircleArrowUp, FaClockRotateLeft, FaRegBookmark, FaRegCreditCard, FaRegThumbsUp } from 'react-icons/fa6';
 import { Link, useLoaderData } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import Swal from 'sweetalert2';
 import useSetTitle from '../../CustomHooks/useSetTitle';
 import GoToTopIcon from '../../SHARED/GoToTopIcon/GoToTopIcon';
 import ScrollToTop from '../../SHARED/ScrollToTop/ScrollToTop';
@@ -8,17 +10,45 @@ import { handleBookmark, handleCart } from '../BookmarkUtils/BookmarkUtils';
 
 const MyUpload = () => {
     useSetTitle('My Upload')
-    const myUpload = useLoaderData();
-    // console.log(myUpload)
+    const uploadData = useLoaderData();
+    const [myUpload, setMyUpload] = useState(uploadData)
+    const handleDelete = id => {
+        Swal.fire({
+            title: "Are you sure?",
+            text: "Do you want to delete this item?",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/deleteMeal/${id}`, { method: 'DELETE' })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your Meal has been deleted.",
+                                icon: "success"
+                            })
+                            // window.location.reload();
+                            let newArr = myUpload.filter(item => item._id !== id);
+                            setMyUpload(newArr)
+                        }
+                    });
+            }
+        });
+    }
     return (
         <>
             <ScrollToTop />
             <ToastContainer />
-            <div className='grid sm:grid-cols-2 xl:grid-cols-3 gap-10 my-20'>
+            <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-10 my-20'>
                 {myUpload && myUpload.map((meal) => {
                     return (
                         <div key={meal?._id} className="p-2">
-                            <Link to={`/public/${meal?._id}`}><img className='md:h-72 lg:h-80 xl:h-96' src={meal?.recipeImage} alt="" /></Link>
+                            <Link to={`/public/${meal?._id}`}><img className='md:h-72 lg:h-80 xl:h-96 object-cover' src={meal?.recipeImage} alt="" /></Link>
                             <div className="p-2">
                                 <div className="flex items-center justify-start gap-5">
                                     <span className='flex items-center text-xs '><FaClockRotateLeft />{meal?.duration}</span>
@@ -49,6 +79,11 @@ const MyUpload = () => {
                                             <FaRegBookmark className='hover:text-blue-700' />
                                         </button>
                                     </div>
+                                </div>
+                                <div className="flex items-center justify-between">
+                                    <Link to={`/updateMeal/${meal?._id}`}><button className='mt-3 px-6 py-2 bg-secondary hover:bg-fuchsia-500 text-white rounded-sm'>Update Meal</button></Link>
+                                    <button onClick={() => { handleDelete(meal._id) }} className='mt-3 px-6 py-2 bg-red-500 hover:bg-red-600 text-white rounded-sm'>Delete Meal</button>
+
                                 </div>
                             </div>
                         </div>

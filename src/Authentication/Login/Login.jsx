@@ -23,16 +23,33 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password)
+        // console.log(email, password)
 
         loginUser(email, password)
             .then(result => {
                 const userCredential = result.user;
+                const loggedUser = {
+                    email: userCredential.email,
+                }
                 console.log(userCredential);
                 if (!userCredential.emailVerified) {
-                    return window.alert("Please verify your account by clicking on the link sent to you at " + userCredential.email);
+                    window.alert("Please verify your account by clicking on the link sent to you at " + userCredential.email);
+                    return navigate(from, {replace: true})
+                } else{
+                    fetch(`https://hero-server3.vercel.app/jwt`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(loggedUser)
+                    }) 
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log('jwt respons', data)
+                        localStorage.setItem('access-token', data.token)
+                        navigate(from, {replace: true})
+                    })
                 }
-                navigate(from, { replace: true })
             })
             .catch(error => {
                 console.log(error)

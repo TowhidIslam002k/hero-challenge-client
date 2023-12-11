@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaCircleArrowUp, FaClockRotateLeft, FaRegBookmark, FaRegCreditCard, FaRegThumbsUp } from 'react-icons/fa6';
 import { Link, useLoaderData } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';

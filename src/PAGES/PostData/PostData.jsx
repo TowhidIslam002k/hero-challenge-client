@@ -1,5 +1,4 @@
 import { useContext } from 'react';
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { UserContext } from '../../ContextProviders/AuthProviders';
@@ -45,7 +44,7 @@ const PostData = () => {
                         icon: 'success',
                         confirmButtonText: 'OK'
                     })
-                    navigate('/myUpload')
+                    navigate(`/myUpload/${uid}`)
                 }
             })
     }
