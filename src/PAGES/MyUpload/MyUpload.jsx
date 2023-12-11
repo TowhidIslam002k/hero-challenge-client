@@ -23,7 +23,7 @@ const MyUpload = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/deleteMeal/${id}`, { method: 'DELETE' })
+                fetch(`https://hero-server3.vercel.app/deleteMeal/${id}`, { method: 'DELETE' })
                     .then(res => res.json())
                     .then(data => {
                         if (data.deletedCount > 0) {

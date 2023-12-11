@@ -17,7 +17,7 @@ const UpdateData = () => {
         const recipeImage = event.target.recipeImage.value;
         const updatedMeal = { title, description, duration, price, recipeImage }
 
-        fetch(`http://localhost:5000/updateMeal/${meal._id}`, {
+        fetch(`https://hero-server3.vercel.app/updateMeal/${meal._id}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'
