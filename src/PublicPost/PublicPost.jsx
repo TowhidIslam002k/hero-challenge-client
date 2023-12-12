@@ -13,7 +13,7 @@ const PublicPost = () => {
     const {user} = useContext(UserContext);
     const publicData = useLoaderData();
     console.log(publicData)
-    if(user && !Array.isArray(publicData)) return <p className='mt-20 font-bold text-2xl text-red-600'>Check Your Inter Connection or Reload Again...</p>
+    if(user && !Array.isArray(publicData)) return <p className='mt-20 font-bold text-2xl text-red-600'>Check Your Internet Connection or Reload Again...</p>
     else {
         return <>
             <ScrollToTop />

@@ -44,7 +44,7 @@ const MyUpload = () => {
             }
         });
     }
-    if(user && !Array.isArray(myUpload)) return <p className='mt-20 font-bold text-2xl text-red-600'>Check Your Inter Connection or Relod Again</p>
+    if(user && !Array.isArray(myUpload)) return <p className='mt-20 font-bold text-2xl text-red-600'>Check Your Internet Connection or Relod Again</p>
     else if(user && uploadData.length === 0) return <p className='mt-20 font-bold text-2xl text-red-600'>You did not post any meal yet...</p>
     else {
         return<>

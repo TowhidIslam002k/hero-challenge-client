@@ -16,9 +16,12 @@ import GoToTopIcon from '../../../SHARED/GoToTopIcon/GoToTopIcon';
 const CarouselCardDetails = () => {
     useSetTitle('Meal Details')
     const { carouselData, featureData } = useLoaderData();
-    const { title, authorImage, authorName, description, duration, makingType, populerity, ratings, recipeImage, serves, uploadDate, price } = carouselData;
-    return (
-        <>
+    function isObject(value) {
+        return value !== null && typeof value === 'object' && !Array.isArray(value);
+    }
+    if(isObject(carouselData)){
+        const { title, authorImage, authorName, description, duration, makingType, populerity, ratings, recipeImage, serves, uploadDate, price } = carouselData;
+        return <>
             <ToastContainer />
             <div className='md:grid grid-cols-3 gap-10 mt-24'>
                 <ScrollToTop />
@@ -105,7 +108,12 @@ const CarouselCardDetails = () => {
                 <span onClick={GoToTopIcon} className='text-3xl'><FaCircleArrowUp /></span>
             </div>
         </>
-    );
+    }
+    else{
+        return (
+            <p className='mt-20 font-bold text-2xl text-red-600'>Check Your Internet Connection or Reload again</p>
+        )
+    }
 };
 
 export default CarouselCardDetails;
