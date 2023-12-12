@@ -28,7 +28,7 @@ const Login = () => {
         loginUser(email, password)
             .then(result => {
                 const userCredential = result.user;
-                console.log(userCredential);
+                // console.log(userCredential);
                 if (!userCredential.emailVerified) {
                     window.alert("Please verify your account by clicking on the link sent to you at " + userCredential.email);
                     navigate(from, {replace: true}) 
@@ -36,7 +36,7 @@ const Login = () => {
                 navigate(from, {replace: true}) 
             })
             .catch(error => {
-                console.log(error)
+                // console.log(error)
                 setErr(error.message)
             })
     }

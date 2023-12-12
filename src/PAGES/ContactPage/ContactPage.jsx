@@ -1,10 +1,8 @@
-import { useState } from 'react';
 import Swal from 'sweetalert2';
 import useSetTitle from '../../CustomHooks/useSetTitle';
 
 const ContactPage = () => {
   useSetTitle("ContactPage")
-  const [contact, setContact] = useState([]);
   const handleContactForm = event => {
     event.preventDefault();
     const form = event.target;
@@ -12,7 +10,7 @@ const ContactPage = () => {
     const email = form.email.value;
     const message = form.message.value;
     const contactData = { name, email, message };
-    console.log(contactData);
+    // console.log(contactData);
 
     fetch('https://hero-server3.vercel.app/contact', {
       method: 'POST',

@@ -23,7 +23,7 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         const confirmpassword = form.confirmPassword.value;
-        console.log(email, password, confirmpassword)
+        // console.log(email, password, confirmpassword)
         setError('')
         if (password !== confirmpassword) {
             setError("Passwords do not match");
@@ -58,13 +58,13 @@ const Register = () => {
                         return navigate('/')
                     })
                     .catch(err => {
-                        console.log(err)
+                        // console.log(err)
                         setError(err.message)
                     })
             })
 
             .catch(err => {
-                console.log(err)
+                // console.log(err)
                 setError(err.message)
             })
     }
