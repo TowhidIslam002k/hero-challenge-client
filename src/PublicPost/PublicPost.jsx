@@ -1,6 +1,8 @@
+import { useContext } from 'react';
 import { FaCircleArrowUp, FaClockRotateLeft, FaRegBookmark, FaRegCreditCard, FaRegThumbsUp } from 'react-icons/fa6';
 import { Link, useLoaderData } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
+import { UserContext } from '../ContextProviders/AuthProviders';
 import useSetTitle from '../CustomHooks/useSetTitle';
 import { handleBookmark, handleCart } from '../PAGES/BookmarkUtils/BookmarkUtils';
 import GoToTopIcon from '../SHARED/GoToTopIcon/GoToTopIcon';
@@ -8,10 +10,12 @@ import ScrollToTop from '../SHARED/ScrollToTop/ScrollToTop';
 
 const PublicPost = () => {
     useSetTitle('Public-Post')
+    const {user} = useContext(UserContext);
     const publicData = useLoaderData();
-    if(!Array.isArray(publicData)) return <p className='mt-20 font-bold text-2xl text-red-600'>Error: 403 (Forbidden)</p>
-    return (
-        <>
+    console.log(publicData)
+    if(user && !Array.isArray(publicData)) return <p className='mt-20 font-bold text-2xl text-red-600'>Check Your Inter Connection or Reload Again...</p>
+    else {
+        return <>
             <ScrollToTop />
             <ToastContainer />
             <div className='grid sm:grid-cols-2 xl:grid-cols-3 gap-10 my-20'>
@@ -61,7 +65,7 @@ const PublicPost = () => {
                 <span onClick={GoToTopIcon} className='text-3xl'><FaCircleArrowUp /></span>
             </div>
         </>
-    );
+    }
 };
 
 export default PublicPost;

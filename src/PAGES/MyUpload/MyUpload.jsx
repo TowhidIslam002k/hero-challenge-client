@@ -1,8 +1,10 @@
+import { useContext } from 'react';
 import { useState } from 'react';
 import { FaCircleArrowUp, FaClockRotateLeft, FaRegBookmark, FaRegCreditCard, FaRegThumbsUp } from 'react-icons/fa6';
 import { Link, useLoaderData } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import Swal from 'sweetalert2';
+import { UserContext } from '../../ContextProviders/AuthProviders';
 import useSetTitle from '../../CustomHooks/useSetTitle';
 import GoToTopIcon from '../../SHARED/GoToTopIcon/GoToTopIcon';
 import ScrollToTop from '../../SHARED/ScrollToTop/ScrollToTop';
@@ -10,10 +12,10 @@ import { handleBookmark, handleCart } from '../BookmarkUtils/BookmarkUtils';
 
 const MyUpload = () => {
     useSetTitle('My Upload')
+    const {user} = useContext(UserContext)
     const uploadData = useLoaderData();
     const [myUpload, setMyUpload] = useState(uploadData)
-    if(!Array.isArray(myUpload)) return <p className='mt-20 font-bold text-2xl text-red-600'>Error: 403(Forbidden)</p>
-    if(Array.isArray(myUpload) && myUpload.length == 0) return <p className='mt-20 font-bold text-2xl text-red-600'>You did not post any meal yet...</p>
+    
     const handleDelete = id => {
         Swal.fire({
             title: "Are you sure?",
@@ -42,8 +44,10 @@ const MyUpload = () => {
             }
         });
     }
-    return (
-        <>
+    if(user && !Array.isArray(myUpload)) return <p className='mt-20 font-bold text-2xl text-red-600'>Check Your Inter Connection or Relod Again</p>
+    else if(user && uploadData.length === 0) return <p className='mt-20 font-bold text-2xl text-red-600'>You did not post any meal yet...</p>
+    else {
+        return<>
             <ScrollToTop />
             <ToastContainer />
             <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-10 my-20'>
@@ -98,7 +102,7 @@ const MyUpload = () => {
                 <span onClick={GoToTopIcon} className='text-3xl'><FaCircleArrowUp /></span>
             </div>
         </>
-    );
+    }
 };
 
 export default MyUpload;
