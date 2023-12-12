@@ -76,7 +76,7 @@ const router = createBrowserRouter([
       {
         path: "/public",
         element: <PrivateRoute><PublicPost /></PrivateRoute>,
-        loader: () => fetch('https://hero-server3.vercel.app/public')
+        loader: () => fetch('https://hero-server3.vercel.app/public',{headers:{authorization:`Bearer ${localStorage.getItem('access-token')}`}})
       },
       {
         path: "/public/:id",
@@ -95,8 +95,8 @@ const router = createBrowserRouter([
       },
       {
         path: '/myUpload/:uid',
-        element: <MyUpload />,
-        loader: ({params}) => fetch(`https://hero-server3.vercel.app/myUpload?uid=${params.uid}`)
+        element: <PrivateRoute><MyUpload /></PrivateRoute>,
+        loader: ({params}) => fetch(`https://hero-server3.vercel.app/myUpload?uid=${params.uid}`,{headers:{authorization:`Bearer ${localStorage.getItem('access-token')}`}})
       },
       {
         path: 'updateMeal/:id',

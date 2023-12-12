@@ -51,6 +51,23 @@ const AuthProviders = ({children}) => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
             setUser(currentUser)
             setLoading(false)
+            const loggedUser = {
+                email: currentUser.email
+            }
+            if(currentUser && currentUser.emailVerified){
+                fetch(`https://hero-server3.vercel.app/jwt`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify(loggedUser)
+                    }) 
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log('jwt respons', data)
+                        localStorage.setItem('access-token', data.token)
+                    })
+            }
         })
         return()=>unSubscribe();
     },[])

@@ -12,6 +12,7 @@ const MyUpload = () => {
     useSetTitle('My Upload')
     const uploadData = useLoaderData();
     const [myUpload, setMyUpload] = useState(uploadData)
+    if(!Array.isArray(myUpload)) return <p className='mt-20 font-bold text-2xl text-red-600'>Error: 403 (Forbidden)</p>
     const handleDelete = id => {
         Swal.fire({
             title: "Are you sure?",

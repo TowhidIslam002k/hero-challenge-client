@@ -11,7 +11,7 @@ const Login = () => {
     useSetTitle("Login")
     const [err, setErr] = useState('');
     const navigate = useNavigate();
-    const { loginUser, loginWithGoogle, loginWithGithub, loading } = useContext(UserContext);
+    const { loginUser, loginWithGoogle, loginWithGithub } = useContext(UserContext);
 
     const location = useLocation();
     const from = location.state?.from?.pathname || '/';
@@ -28,28 +28,12 @@ const Login = () => {
         loginUser(email, password)
             .then(result => {
                 const userCredential = result.user;
-                const loggedUser = {
-                    email: userCredential.email,
-                }
                 console.log(userCredential);
                 if (!userCredential.emailVerified) {
                     window.alert("Please verify your account by clicking on the link sent to you at " + userCredential.email);
-                    return navigate(from, {replace: true})
-                } else{
-                    fetch(`https://hero-server3.vercel.app/jwt`, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify(loggedUser)
-                    }) 
-                    .then(res => res.json())
-                    .then(data => {
-                        console.log('jwt respons', data)
-                        localStorage.setItem('access-token', data.token)
-                        navigate(from, {replace: true})
-                    })
+                    navigate(from, {replace: true}) 
                 }
+                navigate(from, {replace: true}) 
             })
             .catch(error => {
                 console.log(error)
@@ -85,16 +69,7 @@ const Login = () => {
 
     const togglePasswordVisibility = () => {
         setPasswordVisible(!passwordVisible);
-    };
-
-    
-    // set loader.......................
-    // if (loading) {
-    //     return <div className=' flex justify-center items-center min-h-screen'>
-    //         <progress className="progress w-96"></progress>
-    //     </div>
-    // }
-
+    }
     return (
         <>
         <div className="hero min-h-screen bg-base-200 mt-16 w-auto custom-bg-set">

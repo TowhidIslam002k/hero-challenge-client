@@ -9,6 +9,7 @@ import ScrollToTop from '../SHARED/ScrollToTop/ScrollToTop';
 const PublicPost = () => {
     useSetTitle('Public-Post')
     const publicData = useLoaderData();
+    if(!Array.isArray(publicData)) return <p className='mt-20 font-bold text-2xl text-red-600'>Error: 403 (Forbidden)</p>
     return (
         <>
             <ScrollToTop />
